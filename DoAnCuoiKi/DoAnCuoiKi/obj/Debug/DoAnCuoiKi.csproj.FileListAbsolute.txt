@@ -1,0 +1,7 @@
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojAssemblyReference.cache
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
+C:\Users\Admin-s\OneDrive\Tệp đính kèm\Code\C#\Đồ án cuối kì\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb
