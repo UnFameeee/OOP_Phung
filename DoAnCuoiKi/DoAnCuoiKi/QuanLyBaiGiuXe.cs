@@ -25,9 +25,12 @@ namespace DoAnCuoiKi
             //Tạo hàm in tất cả thông tin của xe
         }
 
-        public void themXe()
+        public XeCo themXe(string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
         {
-            
+            XeCo temp = new XeCo();
+            int maXe = 1;
+            temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
+            return temp;
         }
         public void demSlotTrong()
         {

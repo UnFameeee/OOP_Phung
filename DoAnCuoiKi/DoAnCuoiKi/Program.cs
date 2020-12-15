@@ -17,12 +17,11 @@ namespace DoAnCuoiKi
             //Nhập mã số của thẻ xe: 12345
             //Xác nhận sai, khởi động còi báo ...
             //Xác nhận đúng
-            Scanner a = Scanner.XeHoi;
-            int b = 1+(int)a;
-            //Console.WriteLine(b);
-            Time timenow = Time.Now;
-            Console.WriteLine(timenow);
-          
+            //Scanner a = Scanner.XeHoi;
+            //int b = 1+(int)a;
+
+            XeCo Xedapdien1 = new XeDapDien();
+
         }
     }
 }
