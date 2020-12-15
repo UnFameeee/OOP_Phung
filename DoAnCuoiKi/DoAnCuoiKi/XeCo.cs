@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DoAnCuoiKi
 {
-    public class XeCo
+    public abstract class XeCo
     {
         int _maXe; //string maXe
         protected string _loaiXe;
