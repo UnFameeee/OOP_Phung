@@ -8,12 +8,13 @@ namespace DoAnCuoiKi
 {
     public class XeDapDien : XeCo
     {
+        private string BinhDien { set; get; }
         public XeDapDien():base()
         {
         }
-        public XeDapDien(int maXe, string loaixe, string bienSoXe, string hangXe, DateTime ngayGio) : base(maXe, loaixe, bienSoXe, hangXe, ngayGio)
+        public XeDapDien(int maXe, string loaixe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, loaixe, bienSoXe, hangXe, ngayGio)
         {
-            this.bienSoXe = "asdasdasda";
+            this.BinhDien = BinhDien;
         }
         public XeDapDien(XeCo xe) : base(xe)
         {
