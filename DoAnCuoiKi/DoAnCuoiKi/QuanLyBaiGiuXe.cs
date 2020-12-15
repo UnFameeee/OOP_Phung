@@ -27,10 +27,13 @@ namespace DoAnCuoiKi
 
         public XeCo themXe(string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
         {
-            XeCo temp = new XeCo();
-            int maXe = 1;
-            temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
-            return temp;
+            //XeCo temp = new XeCo();
+            //int maXe = 1;
+            //temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
+            //return temp;
+            //day la dong test
+            XeDap a = new XeDap();
+            return a;
         }
         public void demSlotTrong()
         {
@@ -55,8 +58,8 @@ namespace DoAnCuoiKi
         {
 
         }
-        public int tinhTienGuiXe(int sogio, Scanner xe)
-        {//2 4 6 8
+        public int tinhTienGuiXe(int sogio, Scanner loaixe)
+        {
             //params tới thằng scanner để lấy cái kiểu dữ liệu xe của cái thẻ
             //tùy xe
             //Xe đạp: 2000+(sogio/5)*2000; 
@@ -66,7 +69,8 @@ namespace DoAnCuoiKi
             //Xe đạp điện: 4000+(sogio/5)*4000;
             //Xe máy: 5000+(sogio/5)*5000;
             //Xe hơi: 15000+(sogio/5)*15000;
-            return (2000+(int)xe*2000)+(sogio/5)* (2000 + (int)xe * 2000);
+            //Xe đạp: 2000      Xe đạp điện: 3000       Xe máy: 4000        Xe hơi: 10000
+            return loaixe != Scanner.XeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
         public int tinhThoiGianGuiXe(XeCo xe)
         {
