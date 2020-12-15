@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DoAnCuoiKi
 {
     public enum Scanner { XeDap, XeDapDien, XeMay, XeHoi}              
-    class QuanLyBaiGiuXe
+    public class QuanLyBaiGiuXe
     {
         public int demSlotGiuXe { set; get; }
         public int demXeDap { set; get; }
@@ -37,9 +37,16 @@ namespace DoAnCuoiKi
         {
 
         }
-        public void scanner()
+        public static string scanner(XeCo xe)
         {
-            //animal1.GetType() == typeof(Cat)
+            if (xe.GetType() == typeof(XeDap))
+                return "XeHoi";
+            else if (xe.GetType() == typeof(XeDapDien))
+                return "XeDapDien";
+            else if (xe.GetType() == typeof(XeMay))
+                return "XeMay";
+            else
+                return "XeHoi";
         }
         public void demXe(params object[] thamso)
         {

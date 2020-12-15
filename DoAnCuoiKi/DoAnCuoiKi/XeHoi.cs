@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAnCuoiKi
 {
-    class XeHoi : XeCo
+    public class XeHoi : XeCo
     {
         private int _soCuaXe;
         private string _mauXe;
