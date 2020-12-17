@@ -12,9 +12,9 @@ namespace DoAnCuoiKi
         private string _mauXe;
         public XeHoi():base()
         {
-
+            this.soCuaXe = 4;
+            this.mauXe = null;
         }
-
         public XeHoi(int maXe, string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio, int soCuaXe, string mauXe) : base(maXe, loaiXe, bienSoXe, hangXe, ngayGio)
         {
             this.soCuaXe = soCuaXe;
@@ -34,6 +34,10 @@ namespace DoAnCuoiKi
         {
             set { this._mauXe = value; }
             get { return this._mauXe; }
+        }
+        public override string ToString()
+        {
+            return base.ToString() + "\nMa xe " + this.maXe + "\nBien so xe: " + this.bienSoXe +"\nSo cua xe: "+this.soCuaXe+"\nMau xe: "+this.mauXe+ "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
         }
     }
 }

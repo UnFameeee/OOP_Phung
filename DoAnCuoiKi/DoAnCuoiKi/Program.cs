@@ -21,7 +21,11 @@ namespace DoAnCuoiKi
             //int b = 1+(int)a;
 
             XeCo Xedapdien1 = new XeDapDien();
-
+            Intostr(Xedapdien1);
+        }
+        public static void Intostr(XeCo xe)
+        {
+            Console.WriteLine(xe);
         }
     }
 }

@@ -20,5 +20,9 @@ namespace DoAnCuoiKi
         {
             this.binhDien = binhDien;
         }
+        public override string ToString()
+        {
+            return base.ToString()+"\nMa xe "+this.maXe+"\nBien so xe: "+this.bienSoXe+"\nBinh dien: " + this.binhDien+"\nLoai xe: " +this.loaiXe+"\nHang xe: "+this.hangXe+"\nThoi gian gui xe: "+this.ngayGio;
+        }
     }
 }

@@ -29,5 +29,9 @@ namespace DoAnCuoiKi
             set { this._phankhoi = value; }
             get { return _phankhoi; }
         }
+        public override string ToString()
+        {
+            return base.ToString() + "\nMa xe " + this.maXe + "\nBien s xe: " + this.bienSoXe +"\nPhan khoi: "+this.phankhoi+ "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
+        }
     }
 }
