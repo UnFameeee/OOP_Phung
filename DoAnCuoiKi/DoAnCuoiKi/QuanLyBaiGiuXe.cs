@@ -25,14 +25,20 @@ namespace DoAnCuoiKi
             //Tạo hàm in tất cả thông tin của xe
         }
 
-        public XeCo themXe(string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        public XeCo themXe(XeCo xe)
         {
-            //XeCo temp = new XeCo();
-            //int maXe = 1;
-            //temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
-            //return temp;
-            //day la dong test
-            XeDap a = new XeDap();
+            XeCo a = new XeDap();
+            int thexe = phatTheXe();
+
+            if (xe.GetType() == typeof(XeDap))
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+            else if (xe.GetType() == typeof(XeDapDien))
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+            else if (xe.GetType() == typeof(XeMay))
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+            else
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+
             return a;
         }
         public void demSlotTrong()
@@ -72,11 +78,27 @@ namespace DoAnCuoiKi
             //Xe đạp: 2000      Xe đạp điện: 3000       Xe máy: 4000        Xe hơi: 10000
             return loaixe != Scanner.XeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
+
         public int tinhThoiGianGuiXe(XeCo xe)
         {
             DateTime timenow = DateTime.Now;
 
             return -1;
+        }
+
+        List<int> listTheXe = new List<int>(101) { 0 };
+        public int phatTheXe()
+        {
+            int n = 0;
+            bool isExists = true;
+            Random _r = new Random();
+            while (isExists == true)
+            {
+                n = _r.Next() % 1000;
+                isExists = listTheXe.Contains(n);
+            }
+            listTheXe.Add(n);
+            return n;
         }
         //list chỗ để xe [có 100 phần tử] --> chỗ trống trong bãi: 100 - anhxe.length();
         //list ảnh xe :anhxe              --> số xe: anhxe.Length();

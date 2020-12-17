@@ -20,7 +20,9 @@ namespace DoAnCuoiKi
             //Scanner a = Scanner.XeHoi;
             //int b = 1+(int)a;
 
-            XeCo Xedapdien1 = new XeDapDien();
+            QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
+            XeCo XeDap1 = new XeDap();
+            XeCo Xeduocthem1 = a.themXe(XeDap1);
 
         }
     }
