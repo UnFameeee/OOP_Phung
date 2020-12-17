@@ -19,11 +19,18 @@ namespace DoAnCuoiKi
             //Xác nhận đúng
             //Scanner a = Scanner.XeHoi;
             //int b = 1+(int)a;
-
+            //QThang
             QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
             XeCo XeDap1 = new XeDap();
             XeCo Xeduocthem1 = a.themXe(XeDap1);
-
+            //Minh Dang
+            XeCo Xedapdien1 = new XeDapDien();
+            Intostr(Xedapdien1);
+        }
+      
+        public static void Intostr(XeCo xe)
+        {
+            Console.WriteLine(xe);
         }
     }
 }
