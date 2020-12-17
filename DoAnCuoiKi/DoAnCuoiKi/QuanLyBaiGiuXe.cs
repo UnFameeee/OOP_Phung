@@ -15,6 +15,8 @@ namespace DoAnCuoiKi
         public int demXeMay { set; get; }
         public int demXeHoi { set; get; }
         public List<int> chodexe { set; get; } 
+        public List<string> anhXe { set; get; }
+        public List<string> anhNguoi { set; get; }
         //khởi tạo false hết, có xe để vô thì chuyển thành true
         //0-24: xe dap 3 (25-3)*100
         //25-49: xe may 2 (25-2)*100
@@ -24,20 +26,79 @@ namespace DoAnCuoiKi
         {
             //Tạo hàm in tất cả thông tin của xe
         }
-
-        public XeCo themXe(string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        public void BaiXe(int[,] a)
+        {
+            for (int i = 0; i < 100; ++i)
+                for (int j = 0; j < 100; ++j)
+                    if (i % 2 == 0) //chan: xe, le: duong di
+                        a[i, j] = 4; //4: khoang trong ko co xe
+                    else a[i, j] = 5; //5: duong di
+        }
+        public string HetCho()
+        {
+            return "Het Cho";
+        }
+        public void themXe(int[,] a, XeCo xe, string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
         {
             //XeCo temp = new XeCo();
             //int maXe = 1;
             //temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
             //return temp;
             //day la dong test
-            XeDap a = new XeDap();
-            return a;
+            int h = -1, k = -1, i = 0, n = 25;
+            if (scanner(xe) == "XeDapDien")
+            {
+                i = 25;
+                n = 50;
+            }
+            else if (scanner(xe) == "XeMay")
+            {
+                i = 50;
+                n = 75;
+            }
+            else if (scanner(xe) == "XeHoi")
+            {
+                i = 75;
+                n = 100;
+            } 
+            while (i < n)
+            {
+                for (int j = 0; j < 100; ++j)
+                    if (a[i, j] == 4)
+                    {
+                        h = i;
+                        k = j;
+                        i = 100;
+                        break;
+                    }
+                ++i;
+            }
+            if (h == -1)
+                HetCho();
+            else if (scanner(xe) == "XeDap")
+            {
+                a[h, k] = 0;
+                ++demXeDap;
+            }
+            else if (scanner(xe) == "XeDapDien")
+            {
+                a[h, k] = 1;
+                ++demXeDapDien;
+            }
+            else if (scanner(xe) == "XeMay")
+            {
+                a[h, k] = 2;
+                ++demXeHoi;
+            }
+            else
+            {
+                a[h, k] = 3;
+                ++demXeMay;
+            }
         }
-        public void demSlotTrong()
+        public int demSlotTrong()
         {
-
+            return 10000 - (demXeDap + demXeDapDien + demXeMay + demXeMay);
         }
         public void xoaXe()
         {
