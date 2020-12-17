@@ -25,14 +25,22 @@ namespace DoAnCuoiKi
         {
             return xe + "\nThoi gian xac nhan lay xe: " + thoiGianXacNhan + "\nAnh xe vao: " + "anhXe[xe.maXe]" + "\nAnh nguoi vao: " + "anhNguoi[xe.maXe]" + "\nAnh xe ra: " + anhXeRa + "\nAnh nguoi ra: " + anhNguoiRa;
         }
+        //Qthang
+        //public XeCo themXe(XeCo xe)
         public XeCo themXe(string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
         {
-            //XeCo temp = new XeCo();
-            //int maXe = 1;
-            //temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
-            //return temp;
-            //day la dong test
-            XeDap a = new XeDap();
+            XeCo a = new XeDap();
+            int thexe = phatTheXe();
+
+            if (xe.GetType() == typeof(XeDap))
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+            else if (xe.GetType() == typeof(XeDapDien))
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+            else if (xe.GetType() == typeof(XeMay))
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+            else
+                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
+
             return a;
         }
         public void demSlotTrong()
@@ -80,11 +88,28 @@ namespace DoAnCuoiKi
             //10 tiếng là 9000
             return loaixe != Scanner.XeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
+
+
         public int tinhThoiGianGuiXe(DateTime timeGuiXe)
         {
             DateTime timeNow = DateTime.Now;
             TimeSpan temp = timeNow.Subtract(timeGuiXe);
             return temp.Hours;
+        }
+
+        List<int> listTheXe = new List<int>(101) { 0 };
+        public int phatTheXe()
+        {
+            int n = 0;
+            bool isExists = true;
+            Random _r = new Random();
+            while (isExists == true)
+            {
+                n = _r.Next() % 1000;
+                isExists = listTheXe.Contains(n);
+            }
+            listTheXe.Add(n);
+            return n;
         }
         //list chỗ để xe [có 100 phần tử] --> chỗ trống trong bãi: 100 - anhxe.length();
         //list ảnh xe :anhxe              --> số xe: anhxe.Length();
