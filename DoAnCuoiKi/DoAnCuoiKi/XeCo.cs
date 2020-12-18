@@ -62,9 +62,6 @@ namespace DoAnCuoiKi
             set { this._ngayGio = value; }
             get { return this._ngayGio; }
         }
-        public override string ToString()
-        {
-            return base.ToString();                 //chưa biết làm gì?
-        }
+        
     }
 }
