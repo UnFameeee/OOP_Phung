@@ -26,7 +26,7 @@ namespace DoAnCuoiKi
             Console.WriteLine("Nhap thong tin xe: ");
             chisokhac["binhDien"] = "50W";
 
-            //test git pull lan 2
+            //test git pull lan 3
         }
       
         public static void Intostr(XeCo xe)
