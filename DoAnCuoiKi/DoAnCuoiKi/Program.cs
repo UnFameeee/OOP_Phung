@@ -10,22 +10,21 @@ namespace DoAnCuoiKi
     {
         static void Main(string[] args)
         {
-            //XeCo xehoi = new XeHoi();
-            //gọi hàm thêm xe: xehoi(ascd)
-            //Thẻ xe của bạn có mã số: 1234
-            //Gọi hàm xóa xe: xehoi(ascd,people nglayxe, xeco xesh)
-            //Nhập mã số của thẻ xe: 12345
-            //Xác nhận sai, khởi động còi báo ...
-            //Xác nhận đúng
-            //Scanner a = Scanner.XeHoi;
-            //int b = 1+(int)a;
-            //QThang
+            //QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
+            //XeCo XeDap1 = new XeDap();
+            //XeCo Xedapdien1 = new XeDapDien();
+            //Intostr(Xedapdien1);
+
+            Dictionary<string, string> chisokhac = new Dictionary<string, string>()
+            {
+                { "binhDien", "" },
+                { "phanKhoi","" },
+                {"...","" }
+            };
             QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
-            XeCo XeDap1 = new XeDap();
-            XeCo Xeduocthem1 = a.themXe(XeDap1);
-            //Minh Dang
-            XeCo Xedapdien1 = new XeDapDien();
-            Intostr(Xedapdien1);
+            Console.WriteLine();
+            Console.WriteLine("Nhap thong tin xe: ");
+            chisokhac["binhDien"] = "50W";
         }
       
         public static void Intostr(XeCo xe)

@@ -4,26 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DoAnCuoiKi
 {
-    public enum Scanner { XeDap, XeDapDien, XeMay, XeHoi}              
+    public enum Scanner { KhongXacDinh, XeDap, XeDapDien, XeMay, XeHoi}
+
     public class QuanLyBaiGiuXe
     {
-        public int demSlotGiuXe { set; get; }
+        //Khai báo thuộc tính
+        public const int sucChua = 1000;
+
+        public Scanner DemXeBatKi { set; get; }
         public int demXeDap { set; get; }
         public int demXeDapDien { set; get; }
         public int demXeMay { set; get; }
         public int demXeHoi { set; get; }
-
-        public List<int> chodexe { set; get; } 
-        public List<string> anhXe { set; get; }
-        public List<string> anhNguoi { set; get; }
+        public int[,] slotXe = new int[5, sucChua]; //khai báo mảng gồm 5 dòng 1000 cột có giá trị = 0
+        public List<string> danhSachTTXeDaLay { set; get; }
+        public Dictionary<int, string> anhXe { set; get; }
+        public Dictionary<int, string> anhNguoi { set; get; }
+        public Dictionary<int, string> viTriTrongBai { set; get; }
 
         //khởi tạo false hết, có xe để vô thì chuyển thành true
         //0-24: xe dap 3 (25-3)*100
         //25-49: xe may 2 (25-2)*100
         //50-74: xe dap dien 0 (25-0)*100
         //75-99: xe hoi 1 (25-1)*100
+
+        //Khai báo phương thức
+        
         public string thongTinXe(XeCo xe, DateTime thoiGianXacNhan,string anhXeRa,string anhNguoiRa)
         {
             return xe + "\nThoi gian xac nhan lay xe: " + thoiGianXacNhan + "\nAnh xe vao: " + "anhXe[xe.maXe]" + "\nAnh nguoi vao: " + "anhNguoi[xe.maXe]" + "\nAnh xe ra: " + anhXeRa + "\nAnh nguoi ra: " + anhNguoiRa;
@@ -41,81 +50,103 @@ namespace DoAnCuoiKi
         {
             return "Het Cho";
         }
-        public void themXe(int[,] a, XeCo xe, string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        //public QuanLyBaiGiuXe()
+        //{
+        //    this.demXeDap = 0;
+        //    this.demXeDapDien = 0;
+        //    this.demXeHoi = 0;
+        //    this.demXeMay = 0;
+        //}
+        //public void themXe(int[,] a, XeCo xe, string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        //{
+        //    int h = -1, k = -1, i = 0, n = 25;
+        //    if (scanner(xe) == "XeDapDien")
+        //    {
+        //        i = 25;
+        //        n = 50;
+        //    }
+        //    else if (scanner(xe) == "XeMay")
+        //    {
+        //        i = 50;
+        //        n = 75;
+        //    }
+        //    else if (scanner(xe) == "XeHoi")
+        //    {
+        //        i = 75;
+        //        n = 100;
+        //    } 
+        //    while (i < n)
+        //    {
+        //        for (int j = 0; j < 100; ++j)
+        //            if (a[i, j] == 4)
+        //            {
+        //                h = i;
+        //                k = j;
+        //                i = 100;
+        //                break;
+        //            }
+        //        ++i;
+        //    }
+        //    if (h == -1)
+        //        HetCho();
+        //    else if (scanner(xe) == "XeDap")
+        //    {
+        //        a[h, k] = 0;
+        //        ++demXeDap;
+        //    }
+        //    else if (scanner(xe) == "XeDapDien")
+        //    {
+        //        a[h, k] = 1;
+        //        ++demXeDapDien;
+        //    }
+        //    else if (scanner(xe) == "XeMay")
+        //    {
+        //        a[h, k] = 2;
+        //        ++demXeHoi;
+        //    }
+        //    else
+        //    {
+        //        a[h, k] = 3;
+        //        ++demXeMay;
+        //    }
+
+        //}
+        //public int demSlotTrong()
+        //{
+        //    return 10000 - (demXeDap + demXeDapDien + demXeMay + demXeMay);
+        //}
+        public void themXe(XeCo xe)
         {
-            //XeCo temp = new XeCo();
-            //int maXe = 1;
-            //temp = new XeCo(maXe, loaiXe, bienSoXe, hangXe, ngayGio);
-            //return temp;
-            //day la dong test
-            int h = -1, k = -1, i = 0, n = 25;
-            if (scanner(xe) == "XeDapDien")
+            int hangXe = (int)xe.loaiXe;
+            for(int i = 0; i < sucChua; i++)
             {
-                i = 25;
-                n = 50;
-            }
-            else if (scanner(xe) == "XeMay")
-            {
-                i = 50;
-                n = 75;
-            }
-            else if (scanner(xe) == "XeHoi")
-            {
-                i = 75;
-                n = 100;
-            } 
-            while (i < n)
-            {
-                for (int j = 0; j < 100; ++j)
-                    if (a[i, j] == 4)
+                if(slotXe[hangXe, i] == 0)
+                {
+                    slotXe[hangXe, i] = 1;
+                    if(hangXe == 1)
                     {
-                        h = i;
-                        k = j;
-                        i = 100;
-                        break;
+                        demXeDap++;
                     }
-                ++i;
+                    else if(hangXe == 2)
+                    {
+                        demXeDapDien++;
+                    }
+                    else if(hangXe == 3)
+                    {
+                        demXeMay++;
+                    }
+                    else
+                    {
+                        demXeHoi++;
+                    }
+                }
+                //thêm giá trị của thẻ xe vào chỗ bản đồ trong mảng 2 chiều
             }
-            if (h == -1)
-                HetCho();
-            else if (scanner(xe) == "XeDap")
-            {
-                a[h, k] = 0;
-                ++demXeDap;
-            }
-            else if (scanner(xe) == "XeDapDien")
-            {
-                a[h, k] = 1;
-                ++demXeDapDien;
-            }
-            else if (scanner(xe) == "XeMay")
-            {
-                a[h, k] = 2;
-                ++demXeHoi;
-            }
-            else
-            {
-                a[h, k] = 3;
-                ++demXeMay;
-            }
-          XeCo a = new XeDap();
-            int thexe = phatTheXe();
-
-            if (xe.GetType() == typeof(XeDap))
-                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
-            else if (xe.GetType() == typeof(XeDapDien))
-                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
-            else if (xe.GetType() == typeof(XeMay))
-                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
-            else
-                a = new XeDap(thexe, xe.loaiXe, xe.bienSoXe, xe.hangXe, xe.ngayGio);
-
-            return a;
 
         }
-        public int demSlotTrong()
+        public void demSlotGiuXe()
         {
-            return 10000 - (demXeDap + demXeDapDien + demXeMay + demXeMay);
+            
         }
         public bool xoaXe(int maTheXe,XeCo xe,Nguoi nguoilayxe)
         {
@@ -125,7 +156,7 @@ namespace DoAnCuoiKi
                 anhXeRa = ""+xe;
                 anhNguoiRa = ""+nguoilayxe;
                 //... Đợi Wibu
-                danhSachTTXeDaLay.Add(thongTinXe(xe, DateTime.Now, anhXeRa, anhNguoiRa));
+                //danhSachTTXeDaLay.Add(thongTinXe(xe, DateTime.Now, anhXeRa, anhNguoiRa));
                 return true;
             }
             else
@@ -148,14 +179,6 @@ namespace DoAnCuoiKi
         }
         public int tinhTienGuiXe(int sogio, Scanner loaixe)
         {
-            //params tới thằng scanner để lấy cái kiểu dữ liệu xe của cái thẻ
-            //tùy xe
-            //Xe đạp: 2000      Xe đạp điện: 3000       Xe máy: 4000        Xe hơi: 10000
-            //Xe đạp: 2000+(sogio/5)*2000; 
-            // dưới 0-4h59p59s tiếng 2 ngàn 4,59..../5=0 -->3000
-            //5 tiếng là 4000
-            //9 tiếng là 4000
-            //10 tiếng là 9000
             return loaixe != Scanner.XeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
 
@@ -181,9 +204,5 @@ namespace DoAnCuoiKi
             listTheXe.Add(n);
             return n;
         }
-        //list chỗ để xe [có 100 phần tử] --> chỗ trống trong bãi: 100 - anhxe.length();
-        //list ảnh xe :anhxe              --> số xe: anhxe.Length();
-        //list ảnh người   
-
     }
 }

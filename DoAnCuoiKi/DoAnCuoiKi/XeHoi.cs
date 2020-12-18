@@ -8,23 +8,9 @@ namespace DoAnCuoiKi
 {
     public class XeHoi : XeCo
     {
+        //Khai báo thuộc tính
         private int _soCuaXe;
         private string _mauXe;
-        public XeHoi():base()
-        {
-            this.soCuaXe = 4;
-            this.mauXe = null;
-        }
-        public XeHoi(int maXe, string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio, int soCuaXe, string mauXe) : base(maXe, loaiXe, bienSoXe, hangXe, ngayGio)
-        {
-            this.soCuaXe = soCuaXe;
-            this.mauXe = mauXe;
-        }
-        public XeHoi(XeCo xe,int soCuaXe,string mauXe) : base(xe)
-        {
-            this.soCuaXe = soCuaXe;
-            this.mauXe = mauXe;
-        }
         public int soCuaXe
         {
             set { this._soCuaXe = value; }
@@ -35,6 +21,23 @@ namespace DoAnCuoiKi
             set { this._mauXe = value; }
             get { return this._mauXe; }
         }
+        //Khai báo phương thức
+        public XeHoi():base()
+        {
+            this.soCuaXe = 4;
+            this.mauXe = null;
+        }
+        public XeHoi(int maXe, Scanner loaiXe, string bienSoXe, string hangXe, DateTime ngayGio, int soCuaXe, string mauXe) : base(maXe, loaiXe, bienSoXe, hangXe, ngayGio)
+        {
+            this.soCuaXe = soCuaXe;
+            this.mauXe = mauXe;
+        }
+        public XeHoi(XeCo xe,int soCuaXe,string mauXe) : base(xe)
+        {
+            this.soCuaXe = soCuaXe;
+            this.mauXe = mauXe;
+        }
+
         public override string ToString()
         {
             return base.ToString() + "\nMa xe " + this.maXe + "\nBien so xe: " + this.bienSoXe +"\nSo cua xe: "+this.soCuaXe+"\nMau xe: "+this.mauXe+ "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
