@@ -8,11 +8,19 @@ namespace DoAnCuoiKi
 {
     public class XeDapDien : XeCo
     {
-        private string binhDien { set; get; }
+        //Khai báo thuộc tính
+        private string _binhDien;
+        public string binhDien
+        {
+            set { this._binhDien = value; }
+            get { return this._binhDien; }
+        }
+
+        //Khai báo phương thức
         public XeDapDien():base()
         {
         }
-        public XeDapDien(int maXe, string loaixe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, loaixe, bienSoXe, hangXe, ngayGio)
+        public XeDapDien(int maXe, Scanner loaixe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, loaixe, bienSoXe, hangXe, ngayGio)
         {
             this.binhDien = binhDien;
         }

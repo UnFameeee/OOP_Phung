@@ -6,43 +6,19 @@ namespace DoAnCuoiKi
 {
     public abstract class XeCo
     {
-        int _maXe; //string maXe
-        protected string _loaiXe;
+        //Khai báo thuộc tính
+        int _maXe;
+        protected Scanner _loaiXe;
         protected string _bienSoXe;
         protected string _hangXe;
         DateTime _ngayGio;
-        public XeCo()
-        {
-            this.maXe = -1;
-            this.loaiXe = null;
-            this.bienSoXe = null;
-            this.hangXe = null;
-            this.ngayGio = DateTime.Now;
-        }
-
-        public XeCo(int maXe, string loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
-        {
-            this.maXe = maXe;
-            this.loaiXe = loaiXe;
-            this.bienSoXe = bienSoXe;
-            this.hangXe = hangXe;
-            this.ngayGio = ngayGio;
-        }
-        public XeCo(XeCo xe)
-        {
-            this.maXe = xe.maXe;
-            this.loaiXe = xe.loaiXe;
-            this.bienSoXe = xe.bienSoXe;
-            this.hangXe = xe.hangXe;
-            this.ngayGio = xe.ngayGio;
-        }
         public int maXe
         {
             set { this._maXe = value; }
             get { return this._maXe; }
         }
 
-        public string loaiXe
+        public Scanner loaiXe
         {
             set { this._loaiXe = value; }
             get { return this._loaiXe; }
@@ -62,6 +38,34 @@ namespace DoAnCuoiKi
             set { this._ngayGio = value; }
             get { return this._ngayGio; }
         }
+
+        //Khai báo phương thức
+        public XeCo()
+        {
+            this.maXe = -1;
+            this.loaiXe = 0;
+            this.bienSoXe = null;
+            this.hangXe = null;
+            this.ngayGio = DateTime.Now;
+        }
+
+        public XeCo(int maXe, Scanner loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        {
+            this.maXe = maXe;
+            this.loaiXe = loaiXe;
+            this.bienSoXe = bienSoXe;
+            this.hangXe = hangXe;
+            this.ngayGio = ngayGio;
+        }
+        public XeCo(XeCo xe)
+        {
+            this.maXe = xe.maXe;
+            this.loaiXe = xe.loaiXe;
+            this.bienSoXe = xe.bienSoXe;
+            this.hangXe = xe.hangXe;
+            this.ngayGio = xe.ngayGio;
+        }
+        
         
     }
 }
