@@ -17,10 +17,10 @@ namespace DoAnCuoiKi
         }
 
         //Khai báo phương thức
-        public XeDapDien():base()
+        public XeDapDien() : base()
         {
         }
-        public XeDapDien(int maXe, Scanner loaixe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, loaixe, bienSoXe, hangXe, ngayGio)
+        public XeDapDien(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.binhDien = binhDien;
         }
@@ -28,9 +28,9 @@ namespace DoAnCuoiKi
         {
             this.binhDien = binhDien;
         }
-        public override string anhXe()
+        public override string ToString()
         {
-            return $"{base.anhXe()} \nBinh dien: {this.binhDien}";
+            return base.ToString() + "\nMa xe " + this.maXe + "\nBien so xe: " + this.bienSoXe + "\nBinh dien: " + this.binhDien + "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
         }
     }
 }
