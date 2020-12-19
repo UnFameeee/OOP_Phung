@@ -34,7 +34,7 @@ namespace DoAnCuoiKi
             this.gioiTinh = x.gioiTinh;
             this.dangNguoi = x.dangNguoi;
         }
-        public override string ToString()
+        public virtual string anhNguoi()
         {
             return "Gioi tinh: "+this.gioiTinh+"\n Face: "+this.khuonMat+"\n The hinh: "+this.dangNguoi;
         }

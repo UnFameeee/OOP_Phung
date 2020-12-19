@@ -7,11 +7,11 @@ namespace DoAnCuoiKi
     public abstract class XeCo
     {
         //Khai báo thuộc tính
-        int _maXe;
+        protected int _maXe;
         protected Scanner _loaiXe;
         protected string _bienSoXe;
         protected string _hangXe;
-        DateTime _ngayGio;
+        public DateTime _ngayGio;
         public int maXe
         {
             set { this._maXe = value; }
@@ -49,7 +49,7 @@ namespace DoAnCuoiKi
             this.ngayGio = DateTime.Now;
         }
 
-        public XeCo(int maXe, Scanner loaiXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        public XeCo(int maXe, string bienSoXe, string hangXe, DateTime ngayGio)
         {
             this.maXe = maXe;
             this.loaiXe = loaiXe;
@@ -70,5 +70,9 @@ namespace DoAnCuoiKi
             return $"\nMa xe {this.maXe}\nLoai xe: {this.loaiXe}\nHang xe: {this.hangXe} \nThoi gian gui: {this.ngayGio.ToString()}";
         }
 
+        public Scanner getTypeOfVehicle()
+        {
+            return this.loaiXe;
+        }
     }
 }
