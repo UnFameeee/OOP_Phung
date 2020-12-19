@@ -25,8 +25,6 @@ namespace DoAnCuoiKi
             Console.WriteLine();
             Console.WriteLine("Nhap thong tin xe: ");
             chisokhac["binhDien"] = "50W";
-
-            //test git push
         }
       
         public static void Intostr(XeCo xe)
