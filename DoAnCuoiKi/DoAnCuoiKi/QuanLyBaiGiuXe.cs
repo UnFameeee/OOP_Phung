@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAnCuoiKi
 {
+    //day la dong test
     public enum Scanner { XeDap, XeDapDien, XeMay, XeHoi}              
     public class QuanLyBaiGiuXe
     {
