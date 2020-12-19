@@ -65,7 +65,10 @@ namespace DoAnCuoiKi
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
         }
-        
-        
+        public virtual string anhXe()
+        {
+            return $"\nMa xe {this.maXe}\nLoai xe: {this.loaiXe}\nHang xe: {this.hangXe} \nThoi gian gui: {this.ngayGio.ToString()}";
+        }
+
     }
 }
