@@ -24,6 +24,7 @@ namespace DoAnCuoiKi
         public Dictionary<int, string> anhXe { set; get; }
         public Dictionary<int, string> anhNguoi { set; get; }
         public Dictionary<int, string> viTriTrongBai { set; get; }
+        //a[ramdom]=3.50 nghia la dong 3 cot 50
         public QuanLyBaiGiuXe()
         {
             this.demXeDap = 0;
@@ -42,7 +43,6 @@ namespace DoAnCuoiKi
             this.anhXe = anhXe;
             this.anhNguoi = anhNguoi;
             this.viTriTrongBai = viTriTrongBai;
-            this.listTheXe = listTheXe;
         }
         public QuanLyBaiGiuXe(QuanLyBaiGiuXe QL)
         {
@@ -55,13 +55,7 @@ namespace DoAnCuoiKi
             this.anhXe = QL.anhXe;
             this.anhNguoi = QL.anhNguoi;
             this.viTriTrongBai = QL.viTriTrongBai;
-            this.listTheXe = QL.listTheXe;
         }
-        //khởi tạo false hết, có xe để vô thì chuyển thành true
-        //0-24: xe dap 3 (25-3)*100
-        //25-49: xe may 2 (25-2)*100
-        //50-74: xe dap dien 0 (25-0)*100
-        //75-99: xe hoi 1 (25-1)*100
 
         //Khai báo phương thức
 
@@ -117,17 +111,6 @@ namespace DoAnCuoiKi
             else
                 return false;
         }
-        public static string scanner(XeCo xe)
-        {
-            if (xe.GetType() == typeof(XeDap))
-                return "XeHoi";
-            else if (xe.GetType() == typeof(XeDapDien))
-                return "XeDapDien";
-            else if (xe.GetType() == typeof(XeMay))
-                return "XeMay";
-            else
-                return "XeHoi";
-        }
         public void demXe(params object[] thamso)
         {
 
@@ -136,18 +119,13 @@ namespace DoAnCuoiKi
         {
             return loaixe != Scanner.XeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
-
-
         public int tinhThoiGianGuiXe(DateTime timeGuiXe)
         {
             DateTime timeNow = DateTime.Now;
             TimeSpan temp = timeNow.Subtract(timeGuiXe);
             return temp.Hours;
         }
-
         List<int> listTheXe = new List<int>(101) { 0 };
-
-        
         public int phatTheXe()
         {
             int n = 0;
@@ -155,7 +133,7 @@ namespace DoAnCuoiKi
             Random _r = new Random();
             while (isExists == true)
             {
-                n = _r.Next() % 1000;
+                n = _r.Next() % 1000000;
                 isExists = listTheXe.Contains(n);
             }
             listTheXe.Add(n);
