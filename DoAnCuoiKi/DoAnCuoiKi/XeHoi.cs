@@ -38,9 +38,9 @@ namespace DoAnCuoiKi
             this.mauXe = mauXe;
         }
 
-        public override string ToString()
+        public override string anhXe()
         {
-            return base.ToString() + "\nMa xe " + this.maXe + "\nBien so xe: " + this.bienSoXe +"\nSo cua xe: "+this.soCuaXe+"\nMau xe: "+this.mauXe+ "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
+            return $"{base.anhXe()} \nSo cua xe: {this.soCuaXe}\nMau xe: {this.mauXe}";
         }
     }
 }
