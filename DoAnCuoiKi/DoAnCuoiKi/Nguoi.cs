@@ -13,6 +13,7 @@ namespace DoAnCuoiKi
     }
     public class Nguoi
     {
+        public int theXe { set; get; }
         public string khuonMat { set; get; }
         public GioiTinh gioiTinh { set; get; }
         public string dangNguoi { set; get; }
@@ -21,22 +22,25 @@ namespace DoAnCuoiKi
             this.khuonMat = null;
             this.gioiTinh = GioiTinh.Nam;
             this.dangNguoi = null;
+            this.theXe = -1;
         }
-        public Nguoi(string khuonMat, GioiTinh gioiTinh, string dangNguoi)
+        public Nguoi(string khuonMat, GioiTinh gioiTinh, string dangNguoi, int theXe)
         {
             this.khuonMat = khuonMat;
             this.gioiTinh = gioiTinh;
             this.dangNguoi = dangNguoi;
+            this.theXe = theXe;
         }
         public Nguoi(Nguoi x)
         {
             this.khuonMat = x.khuonMat;
             this.gioiTinh = x.gioiTinh;
             this.dangNguoi = x.dangNguoi;
+            this.theXe = x.theXe;
         }
-        public virtual string anhNguoi()
+        public override string ToString()
         {
-            return "Gioi tinh: "+this.gioiTinh+"\n Face: "+this.khuonMat+"\n The hinh: "+this.dangNguoi;
+            return "Gioi tinh: " + this.gioiTinh + "\n Face: " + this.khuonMat + "\n The hinh: " + this.dangNguoi;
         }
     }
 }

@@ -7,12 +7,12 @@ namespace DoAnCuoiKi
     public abstract class XeCo
     {
         //Khai báo thuộc tính
-        protected int _maXe;
+        string _maXe;
         protected Scanner _loaiXe;
         protected string _bienSoXe;
         protected string _hangXe;
-        public DateTime _ngayGio;
-        public int maXe
+        DateTime _ngayGio;
+        public string maXe
         {
             set { this._maXe = value; }
             get { return this._maXe; }
@@ -42,17 +42,15 @@ namespace DoAnCuoiKi
         //Khai báo phương thức
         public XeCo()
         {
-            this.maXe = -1;
-            this.loaiXe = 0;
+            this.maXe = "";
             this.bienSoXe = null;
             this.hangXe = null;
             this.ngayGio = DateTime.Now;
         }
 
-        public XeCo(int maXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        public XeCo(string maXe, string bienSoXe, string hangXe, DateTime ngayGio)
         {
             this.maXe = maXe;
-            this.loaiXe = loaiXe;
             this.bienSoXe = bienSoXe;
             this.hangXe = hangXe;
             this.ngayGio = ngayGio;
@@ -60,19 +58,11 @@ namespace DoAnCuoiKi
         public XeCo(XeCo xe)
         {
             this.maXe = xe.maXe;
-            this.loaiXe = xe.loaiXe;
             this.bienSoXe = xe.bienSoXe;
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
         }
-        public virtual string anhXe()
-        {
-            return $"\nMa xe {this.maXe}\nLoai xe: {this.loaiXe}\nHang xe: {this.hangXe} \nThoi gian gui: {this.ngayGio.ToString()}";
-        }
 
-        public Scanner getTypeOfVehicle()
-        {
-            return this.loaiXe;
-        }
+
     }
 }
