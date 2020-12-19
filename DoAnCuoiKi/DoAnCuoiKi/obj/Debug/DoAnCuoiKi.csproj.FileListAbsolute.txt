@@ -16,3 +16,6 @@ D:\OOP\Đề tài cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiK
 D:\OOP\Đề tài cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
 D:\OOP\Đề tài cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
 D:\OOP\Đề tài cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb
+C:\Users\Admin-s\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
+C:\Users\Admin-s\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
+C:\Users\Admin-s\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb

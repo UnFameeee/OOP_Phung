@@ -20,7 +20,7 @@ namespace DoAnCuoiKi
         public XeDapDien():base()
         {
         }
-        public XeDapDien(int maXe, Scanner loaixe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, loaixe, bienSoXe, hangXe, ngayGio)
+        public XeDapDien(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.binhDien = binhDien;
         }

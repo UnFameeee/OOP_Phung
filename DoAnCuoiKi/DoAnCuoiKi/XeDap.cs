@@ -11,7 +11,7 @@ namespace DoAnCuoiKi
         public XeDap():base()
         {
         }
-        public XeDap(int maXe, Scanner loaiXe, string bienSoXe, string hangXe, DateTime ngayGio) : base(maXe, loaiXe, bienSoXe, hangXe, ngayGio)
+        public XeDap(string maXe, string bienSoXe, string hangXe, DateTime ngayGio) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.bienSoXe = null;
         }

@@ -20,7 +20,7 @@ namespace DoAnCuoiKi
         {
             this.phankhoi = null;
         }
-        public XeMay(int maXe, Scanner loaiXe, string bienSoXe, string hangXe, DateTime ngayGio, string phankhoi) : base(maXe, loaiXe, bienSoXe, hangXe, ngayGio)
+        public XeMay(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, string phankhoi) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.phankhoi = phankhoi;
         }

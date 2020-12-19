@@ -27,7 +27,7 @@ namespace DoAnCuoiKi
             this.soCuaXe = 4;
             this.mauXe = null;
         }
-        public XeHoi(int maXe, Scanner loaiXe, string bienSoXe, string hangXe, DateTime ngayGio, int soCuaXe, string mauXe) : base(maXe, loaiXe, bienSoXe, hangXe, ngayGio)
+        public XeHoi(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, int soCuaXe, string mauXe) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.soCuaXe = soCuaXe;
             this.mauXe = mauXe;

@@ -10,23 +10,27 @@ namespace DoAnCuoiKi
     {
         static void Main(string[] args)
         {
+            //Dictionary<string, string> chisokhac = new Dictionary<string, string>()
+            //{
+            //    { "binhDien", "" },
+            //    { "phanKhoi","" },
+            //    {"...","" }
+            //};
             //QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
-            //XeCo XeDap1 = new XeDap();
-            //XeCo Xedapdien1 = new XeDapDien();
-            //Intostr(Xedapdien1);
+            //Console.WriteLine();
+            //Console.WriteLine("Nhap thong tin xe: ");
+            //chisokhac["binhDien"] = "50W";
 
-            Dictionary<string, string> chisokhac = new Dictionary<string, string>()
-            {
-                { "binhDien", "" },
-                { "phanKhoi","" },
-                {"...","" }
-            };
+
+            //--------------Đã Xong Q.Thắng----------------------
             QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
-            Console.WriteLine();
-            Console.WriteLine("Nhap thong tin xe: ");
-            chisokhac["binhDien"] = "50W";
-
-            //test git push
+            XeDap XeDap1 = new XeDap();
+            Nguoi A = new Nguoi();
+            a.themXe(XeDap1, A);
+            Console.WriteLine(XeDap1.maXe);
+            Console.WriteLine(a.tongSoXe());
+            Console.WriteLine(a.statusBaiXe());
+            //---------------------------------------------------
         }
       
         public static void Intostr(XeCo xe)
