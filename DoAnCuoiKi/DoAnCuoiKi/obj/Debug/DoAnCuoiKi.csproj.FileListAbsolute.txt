@@ -19,3 +19,10 @@ D:\OOP\Đề tài cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiK
 C:\Users\Admin-s\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
 C:\Users\Admin-s\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
 C:\Users\Admin-s\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojAssemblyReference.cache
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
+C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb
