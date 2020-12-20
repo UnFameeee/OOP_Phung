@@ -10,6 +10,7 @@ namespace DoAnCuoiKi
     public enum Scanner { xeDap, xeDapDien, xeMay, xeHoi }
     public struct ThongTinXeTrongBai
     {
+        public string maXe;
         public string anhXe;
         public string anhNguoi;
         public int hang;
@@ -21,8 +22,8 @@ namespace DoAnCuoiKi
         public const int sucChua = 1000;
         private int[] slXe = new int[4];
         public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
-        public Dictionary<int,string> danhSachTTXeDaLay { set; get; }
-        public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai { set; get; }
+        public Dictionary<int, string> danhSachTTXeDaLay = new Dictionary<int, string>();
+        public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai = new Dictionary<int, ThongTinXeTrongBai>();
         //Thắng
         List<int> listTheXe = new List<int>(1000000) { 0 };
         public int phatTheXe()
@@ -53,9 +54,19 @@ namespace DoAnCuoiKi
                     nguoi.theXe = phatTheXe();
                     //Mã hóa vị trí đỗ xe thành mã xe
                     xe.maXe = (hangXe + "." + i).ToString();
+                    //--Tiến 
+                    //Thêm thông tin cho người và xe
+                    ThongTinXeTrongBai TTXTB;
+                    //
+                    TTXTB.maXe = xe.maXe;
+                    TTXTB.anhNguoi = nguoi.anhNguoi();
+                    TTXTB.anhXe = xe.anhXe();
+                    TTXTB.hang = hangXe;
+                    TTXTB.cot = i;
+                    TTXeTrongBai.Add(nguoi.theXe, TTXTB);
                     break;
+                    //-- Done
                 }
-                //thêm giá trị của thẻ xe vào chỗ bản đồ trong mảng 2 chiều
             }
         }
         public int slXeBatKy(Scanner x)
