@@ -42,5 +42,9 @@ namespace DoAnCuoiKi
         {
             return "Gioi tinh: " + this.gioiTinh + "\nKhuon mat: " + this.khuonMat + "\nThe hinh: " + this.dangNguoi;
         }
+        //public string anhNguoi()
+        //{
+        //    return "Gioi tinh: " + this.gioiTinh + "\n Face: " + this.khuonMat + "\n The hinh: " + this.dangNguoi;
+        //}
     }
 }

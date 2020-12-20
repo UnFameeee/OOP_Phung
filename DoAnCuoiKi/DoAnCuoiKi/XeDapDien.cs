@@ -23,14 +23,16 @@ namespace DoAnCuoiKi
         public XeDapDien(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.binhDien = binhDien;
+            this.loaiXe = Scanner.xeDapDien;
         }
         public XeDapDien(XeCo xe, string binhDien) : base(xe)
         {
             this.binhDien = binhDien;
+            this.loaiXe = Scanner.xeDapDien;
         }
         public override string anhXe()
         {
-            return base.ToString() + "\nMa xe: " + this.maXe + "\nBien so xe: " + this.bienSoXe + "\nBinh dien: " + this.binhDien + "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
+            return $"\nMa xe: {this.maXe} \nBien so xe: {this.bienSoXe} \nBinh dien: {this.binhDien} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
     }
 }

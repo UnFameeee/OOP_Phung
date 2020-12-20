@@ -24,12 +24,21 @@ namespace DoAnCuoiKi
 
             //--------------Đã Xong Q.Thắng----------------------
             QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
-            XeDap XeDap1 = new XeDap();
+            XeCo XeDap1 = new XeDap();
             Nguoi A = new Nguoi();
             a.themXe(XeDap1, A);
             Console.WriteLine(XeDap1.maXe);
             Console.WriteLine(a.tongSoXe());
             Console.WriteLine(a.statusBaiXe());
+            Console.WriteLine($"the xe: {A.theXe}");
+
+            XeCo XeMay1 = new XeMay();
+            Nguoi B = new Nguoi();
+            a.themXe(XeMay1, B);
+            Console.WriteLine(XeMay1.maXe);
+            Console.WriteLine(a.tongSoXe());
+            Console.WriteLine(a.statusBaiXe());
+            Console.WriteLine($"the xe: {B.theXe}");
             //---------------------------------------------------
         }
 

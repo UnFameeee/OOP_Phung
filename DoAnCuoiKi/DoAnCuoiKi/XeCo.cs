@@ -62,7 +62,16 @@ namespace DoAnCuoiKi
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
         }
-        public abstract string anhXe();
+        public Scanner getTypeOfVehicle()
+        {
+            return this.loaiXe;
+        }
+        public virtual string anhXe()
+        {
+            string res = "\nMa xe " + this.maXe;
 
+            res += "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui: " + this.ngayGio.ToString();
+            return res;
+        }
     }
 }
