@@ -62,7 +62,7 @@ namespace DoAnCuoiKi
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
         }
-
+        public abstract string anhXe();
 
     }
 }
