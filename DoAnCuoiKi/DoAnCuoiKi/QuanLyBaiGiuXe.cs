@@ -54,6 +54,7 @@ namespace DoAnCuoiKi
                     nguoi.theXe = phatTheXe();
                     //Mã hóa vị trí đỗ xe thành mã xe
                     xe.maXe = (hangXe + "." + i).ToString();
+                    //--Tiến 
                     //Thêm thông tin cho người và xe
                     ThongTinXeTrongBai TTXTB;
                     TTXTB.maXe = xe.maXe;
@@ -63,6 +64,7 @@ namespace DoAnCuoiKi
                     TTXTB.cot = i;
                     TTXeTrongBai.Add(nguoi.theXe, TTXTB);
                     break;
+                    //-- Done
                 }
             }
         }
