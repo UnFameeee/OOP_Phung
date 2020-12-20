@@ -18,20 +18,23 @@ namespace DoAnCuoiKi
         //Khai báo phương thức
         public XeMay() : base()
         {
-            this.phankhoi = null;
+            this.phankhoi = "";
+            this.loaiXe = Scanner.xeMay;
         }
         public XeMay(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, string phankhoi) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.phankhoi = phankhoi;
+            this.loaiXe = Scanner.xeMay;
         }
         public XeMay(XeCo xe, string phankhoi) : base(xe)
         {
             this.phankhoi = phankhoi;
+            this.loaiXe = Scanner.xeMay;
         }
 
         public override string anhXe()
         {
-            return base.ToString() + "\nMa xe: " + this.maXe + "\nBien s xe: " + this.bienSoXe + "\nPhan khoi: " + this.phankhoi + "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
+            return $"\nMa xe: {this.maXe} \nBien s xe: {this.bienSoXe} \nPhan khoi: {this.phankhoi} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
     }
 }

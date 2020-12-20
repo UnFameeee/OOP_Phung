@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DoAnCuoiKi
 {
-    public enum Scanner { KhongXacDinh, XeDap, XeDapDien, XeMay, XeHoi }
+    public enum Scanner { xeDap, xeDapDien, xeMay, xeHoi }
     public struct ThongTinXeTrongBai
     {
         public string anhXe;
@@ -20,14 +20,15 @@ namespace DoAnCuoiKi
         //Khai báo thuộc tính
         public const int sucChua = 1000;
         private int[] slXe = new int[4];
-        public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 5 dòng 1000 cột có giá trị = 0
+        public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
         public Dictionary<string,string> danhSachTTXeDaLay { set; get; }
         //public Dictionary<int, string> anhXe { set; get; }
         //public Dictionary<int, string> anhNguoi { set; get; }
         //public Dictionary<int, string> viTriTrongBai { set; get; }
         public Dictionary<string, ThongTinXeTrongBai> TTXeTrongBai { set; get; }
+
         //Thắng
-        List<int> listTheXe = new List<int>(101) { 0 };
+        List<int> listTheXe = new List<int>(1000000) { 0 };
         public int phatTheXe()
         {
             int n = 0;
@@ -35,7 +36,7 @@ namespace DoAnCuoiKi
             Random _r = new Random();
             while (isExists == true)
             {
-                n = _r.Next() % 1000;
+                n = _r.Next() % 1000000;
                 isExists = listTheXe.Contains(n);
             }
             listTheXe.Add(n);
@@ -43,7 +44,7 @@ namespace DoAnCuoiKi
         }
         public void themXe(XeCo xe, Nguoi nguoi)
         {
-            int hangXe = (int)xe.loaiXe;
+            int hangXe = (int)xe.getTypeOfVehicle();
             for (int i = 0; i < sucChua; i++)
             {
                 if (slotXe[hangXe, i] == 0)
@@ -123,7 +124,7 @@ namespace DoAnCuoiKi
         }
         public int tinhTienGuiXe(int sogio, Scanner loaixe)
         {
-            return loaixe != Scanner.XeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
+            return loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
         public int tinhThoiGianGuiXe(DateTime timeGuiXe, DateTime timeNow)
         {

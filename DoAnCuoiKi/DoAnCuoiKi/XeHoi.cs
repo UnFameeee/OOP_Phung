@@ -23,24 +23,27 @@ namespace DoAnCuoiKi
         }
         //Khai báo phương thức
         public XeHoi() : base()
-        {
-            this.soCuaXe = 4;
-            this.mauXe = null;
+        {            
+            this.mauXe = "";
+            this.soCuaXe = -1;
+            this.loaiXe = Scanner.xeHoi;
         }
         public XeHoi(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, int soCuaXe, string mauXe) : base(maXe, bienSoXe, hangXe, ngayGio)
         {
             this.soCuaXe = soCuaXe;
             this.mauXe = mauXe;
+            this.loaiXe = Scanner.xeHoi;
         }
         public XeHoi(XeCo xe, int soCuaXe, string mauXe) : base(xe)
         {
             this.soCuaXe = soCuaXe;
             this.mauXe = mauXe;
+            this.loaiXe = Scanner.xeHoi;
         }
 
         public override string anhXe()
         {
-            return ""+base.ToString() + "\nMa xe: " + this.maXe + "\nBien so xe: " + this.bienSoXe + "\nSo cua xe: " + this.soCuaXe + "\nMau xe: " + this.mauXe + "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui xe: " + this.ngayGio;
+            return $"\nMa xe: {this.maXe} \nBien so xe: {this.bienSoXe} \nSo cua xe: {this.soCuaXe} \nMau xe: {this.mauXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
     }
 }
