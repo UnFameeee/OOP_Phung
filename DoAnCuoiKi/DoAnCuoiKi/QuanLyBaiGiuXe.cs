@@ -10,6 +10,7 @@ namespace DoAnCuoiKi
     public enum Scanner { xeDap, xeDapDien, xeMay, xeHoi }
     public struct ThongTinXeTrongBai
     {
+        public string maXe;
         public string anhXe;
         public string anhNguoi;
         public int hang;
@@ -55,6 +56,7 @@ namespace DoAnCuoiKi
                     xe.maXe = (hangXe + "." + i).ToString();
                     //Thêm thông tin cho người và xe
                     ThongTinXeTrongBai TTXTB;
+                    TTXTB.maXe = xe.maXe;
                     TTXTB.anhNguoi = nguoi.anhNguoi();
                     TTXTB.anhXe = xe.anhXe();
                     TTXTB.hang = hangXe;
@@ -62,7 +64,6 @@ namespace DoAnCuoiKi
                     TTXeTrongBai.Add(nguoi.theXe, TTXTB);
                     break;
                 }
-                //thêm giá trị của thẻ xe vào chỗ bản đồ trong mảng 2 chiều
             }
         }
         public int slXeBatKy(Scanner x)
