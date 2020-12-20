@@ -38,9 +38,9 @@ namespace DoAnCuoiKi
             this.dangNguoi = x.dangNguoi;
             this.theXe = x.theXe;
         }
-        public override string ToString()
+        public string anhNguoi()
         {
-            return "Gioi tinh: " + this.gioiTinh + "\n Face: " + this.khuonMat + "\n The hinh: " + this.dangNguoi;
+            return "Gioi tinh: " + this.gioiTinh + "\nKhuon mat: " + this.khuonMat + "\nThe hinh: " + this.dangNguoi;
         }
     }
 }
