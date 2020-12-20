@@ -57,6 +57,7 @@ namespace DoAnCuoiKi
                     //--Tiến 
                     //Thêm thông tin cho người và xe
                     ThongTinXeTrongBai TTXTB;
+                    //
                     TTXTB.maXe = xe.maXe;
                     TTXTB.anhNguoi = nguoi.anhNguoi();
                     TTXTB.anhXe = xe.anhXe();
