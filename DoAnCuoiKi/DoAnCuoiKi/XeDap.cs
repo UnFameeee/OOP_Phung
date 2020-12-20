@@ -25,7 +25,7 @@ namespace DoAnCuoiKi
         }
         public override string anhXe()
         {
-            return $"\nMa xe: {this.maXe} \nBien so xe: {this.bienSoXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+            return $"\nMa xe: {this.maXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
     }
 }

@@ -10,6 +10,7 @@ namespace DoAnCuoiKi
     public enum Scanner { xeDap, xeDapDien, xeMay, xeHoi }
     public struct ThongTinXeTrongBai
     {
+        public string maXe;
         public string anhXe;
         public string anhNguoi;
         public int hang;
@@ -21,12 +22,11 @@ namespace DoAnCuoiKi
         public const int sucChua = 1000;
         private int[] slXe = new int[4];
         public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
-        public Dictionary<string,string> danhSachTTXeDaLay { set; get; }
+        public Dictionary<int,string> danhSachTTXeDaLay { set; get; }
         //public Dictionary<int, string> anhXe { set; get; }
         //public Dictionary<int, string> anhNguoi { set; get; }
         //public Dictionary<int, string> viTriTrongBai { set; get; }
-        public Dictionary<string, ThongTinXeTrongBai> TTXeTrongBai { set; get; }
-
+        public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai { set; get; }
         //Thắng
         List<int> listTheXe = new List<int>(1000000) { 0 };
         public int phatTheXe()
@@ -99,12 +99,13 @@ namespace DoAnCuoiKi
         //        --canduoi;
         //    }
         //}
-        public string thongTinXe(string maTheXe,DateTime thoiGianXeVao, DateTime thoiGianXacNhan, string anhXeRa, string anhNguoiRa)
+        public string thongTinXe(int maTheXe, DateTime thoiGianXeVao, DateTime thoiGianXacNhan, string anhXeRa, string anhNguoiRa)
         {
-            return "Thoi gian xe vao: "+thoiGianXeVao+"\nThoi gian xac nhan lay xe: " + thoiGianXacNhan + "\nAnh xe vao: " + TTXeTrongBai[maTheXe].anhXe + "\nAnh nguoi vao: " + TTXeTrongBai[maTheXe].anhNguoi + "\nAnh xe ra: " + anhXeRa + "\nAnh nguoi ra: " + anhNguoiRa;
+            return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {TTXeTrongBai[maTheXe].anhXe}\nAnh xe ra: {anhXeRa} \nAnh nguoi vao:  {TTXeTrongBai[maTheXe].anhNguoi} \nAnh nguoi ra: {anhNguoiRa}";
         }
-        public string xoaXe(string maTheXe, XeCo xe, Nguoi nguoilayxe)
+        public string xuLyLayXe(XeCo xe, Nguoi nguoilayxe)
         {
+            int maTheXe = nguoilayxe.theXe;
             string anhXeVao, anhNguoiVao,anhXeRa, anhNguoiRa;
             anhNguoiVao = TTXeTrongBai[maTheXe].anhNguoi;
             anhXeVao = TTXeTrongBai[maTheXe].anhXe;
@@ -112,12 +113,17 @@ namespace DoAnCuoiKi
             anhNguoiRa = nguoilayxe.anhNguoi();
             if (anhXeVao==anhXeRa&&anhNguoiVao==anhNguoiRa)
             {
-                DateTime timeNow = DateTime.Now;
+                DateTime thoiGianXacNhan = DateTime.Now;
+                int loaiXe = (int)xe.getTypeOfVehicle();
+                //Loại bỏ các dữ liệu về xe trong cơ sở dữ liệu
                 TTXeTrongBai.Remove(maTheXe);
                 slotXe[TTXeTrongBai[maTheXe].hang, TTXeTrongBai[maTheXe].cot] =0;
-                int sotien = tinhTienGuiXe(tinhThoiGianGuiXe(xe.ngayGio, timeNow),xe.loaiXe);
-                danhSachTTXeDaLay.Add(maTheXe,thongTinXe(maTheXe,xe.ngayGio,timeNow, anhXeRa, anhNguoiRa));
-                return "So tien phai tra la: "+sotien+"\n";
+                --slXe[loaiXe];
+                //Tính tiền gửi xe
+                int sotien = tinhTienGuiXe(tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), (Scanner)loaiXe);
+                //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
+                danhSachTTXeDaLay.Add(maTheXe,thongTinXe(maTheXe,xe.ngayGio,thoiGianXacNhan, anhXeRa, anhNguoiRa));
+                return $"So tien phai tra la: {sotien} \n";
             }
             else
                 return "Loi xac thuc.\n";

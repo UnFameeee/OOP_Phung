@@ -31,7 +31,6 @@ namespace DoAnCuoiKi
             Console.WriteLine(a.tongSoXe());
             Console.WriteLine(a.statusBaiXe());
             Console.WriteLine($"the xe: {A.theXe}");
-
             XeCo XeMay1 = new XeMay();
             Nguoi B = new Nguoi();
             a.themXe(XeMay1, B);
@@ -40,11 +39,14 @@ namespace DoAnCuoiKi
             Console.WriteLine(a.statusBaiXe());
             Console.WriteLine($"the xe: {B.theXe}");
             //---------------------------------------------------
-        }
-
-        public static void Intostr(XeCo xe)
-        {
-            Console.WriteLine(xe);
+            // -----------------------TEST - NMD-----------------------
+            Console.WriteLine("==============");
+            Console.WriteLine("===Xe Dap======");
+            Console.WriteLine(XeDap1.anhXe());
+            Console.WriteLine("=====Xe May======");
+            Console.WriteLine(XeMay1.anhXe());
+            Console.WriteLine("=====Anh Nguoi=====");
+            Console.WriteLine(A.anhNguoi());
         }
     }
 }
