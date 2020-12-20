@@ -10,7 +10,6 @@ namespace DoAnCuoiKi
     public enum Scanner { xeDap, xeDapDien, xeMay, xeHoi }
     public struct ThongTinXeTrongBai
     {
-        public string maXe;
         public string anhXe;
         public string anhNguoi;
         public int hang;
@@ -23,9 +22,6 @@ namespace DoAnCuoiKi
         private int[] slXe = new int[4];
         public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
         public Dictionary<int,string> danhSachTTXeDaLay { set; get; }
-        //public Dictionary<int, string> anhXe { set; get; }
-        //public Dictionary<int, string> anhNguoi { set; get; }
-        //public Dictionary<int, string> viTriTrongBai { set; get; }
         public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai { set; get; }
         //Thắng
         List<int> listTheXe = new List<int>(1000000) { 0 };
@@ -49,9 +45,13 @@ namespace DoAnCuoiKi
             {
                 if (slotXe[hangXe, i] == 0)
                 {
+                    //Đánh dấu = 1 tại chỗ nào có xe
                     slotXe[hangXe, i] = 1;
+                    //Tăng số lượng xe của hàng đó
                     slXe[hangXe]++;
+                    //Gán thẻ xe đó cho người lái xe
                     nguoi.theXe = phatTheXe();
+                    //Mã hóa vị trí đỗ xe thành mã xe
                     xe.maXe = (hangXe + "." + i).ToString();
                     break;
                 }
@@ -78,27 +78,6 @@ namespace DoAnCuoiKi
         }
 
         //M.Đăng
-        //private void layViTriTu_Ma(string maTheXe,out int hang, out int cot)
-        //{
-        //    int len = maTheXe.Length;
-        //    int canduoi,cantren=len-1;
-        //    int dem = 1;
-        //    cot = 0; hang = 0;
-        //    while(maTheXe[cantren]!='.')
-        //    {
-        //        cot += (maTheXe[cantren] - 48) * dem;
-        //        dem *= 10;
-        //        --cantren;
-        //    }
-        //    dem = 1;
-        //    canduoi = cantren-1;
-        //    while(canduoi!=-1)
-        //    {
-        //        hang += (maTheXe[canduoi]-48)*dem;
-        //        dem *= 10;
-        //        --canduoi;
-        //    }
-        //}
         public string thongTinXe(int maTheXe, DateTime thoiGianXeVao, DateTime thoiGianXacNhan, string anhXeRa, string anhNguoiRa)
         {
             return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {TTXeTrongBai[maTheXe].anhXe}\nAnh xe ra: {anhXeRa} \nAnh nguoi vao:  {TTXeTrongBai[maTheXe].anhNguoi} \nAnh nguoi ra: {anhNguoiRa}";
