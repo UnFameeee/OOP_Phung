@@ -34,7 +34,7 @@ namespace DoAnCuoiKi
 
         public override string anhXe()
         {
-            return $"\nMa xe: {this.maXe} \nBien s xe: {this.bienSoXe} \nPhan khoi: {this.phankhoi} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+            return $"\nMa xe: {this.maXe} \nBien so xe: {this.bienSoXe} \nPhan khoi: {this.phankhoi} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
     }
 }

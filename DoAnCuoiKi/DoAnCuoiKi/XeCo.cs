@@ -66,12 +66,6 @@ namespace DoAnCuoiKi
         {
             return this.loaiXe;
         }
-        public virtual string anhXe()
-        {
-            string res = "\nMa xe " + this.maXe;
-
-            res += "\nLoai xe: " + this.loaiXe + "\nHang xe: " + this.hangXe + "\nThoi gian gui: " + this.ngayGio.ToString();
-            return res;
-        }
+        public abstract string anhXe();
     }
 }
