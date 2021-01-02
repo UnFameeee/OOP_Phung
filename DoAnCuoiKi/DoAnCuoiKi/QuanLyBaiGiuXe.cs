@@ -54,10 +54,8 @@ namespace DoAnCuoiKi
                     nguoi.theXe = phatTheXe();
                     //Mã hóa vị trí đỗ xe thành mã xe
                     xe.maXe = (hangXe + "." + i).ToString();
-                    //--Tiến 
                     //Thêm thông tin cho người và xe
                     ThongTinXeTrongBai TTXTB;
-                    //
                     TTXTB.maXe = xe.maXe;
                     TTXTB.anhNguoi = nguoi.anhNguoi();
                     TTXTB.anhXe = xe.anhXe();
@@ -65,7 +63,6 @@ namespace DoAnCuoiKi
                     TTXTB.cot = i;
                     TTXeTrongBai.Add(nguoi.theXe, TTXTB);
                     break;
-                    //-- Done
                 }
             }
         }
@@ -127,5 +124,9 @@ namespace DoAnCuoiKi
             TimeSpan temp = timeNow.Subtract(timeGuiXe);
             return temp.Hours;
         }
+
+        //Tổng kết số tiền thu được
+        //Status số tiền hiện đang có
+        //
     }
 }
