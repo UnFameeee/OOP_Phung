@@ -31,7 +31,7 @@ namespace DoAnCuoiKi
             Console.WriteLine(a.tongSoXe());
             Console.WriteLine(a.statusBaiXe());
             Console.WriteLine($"the xe: {A.theXe}");
-            XeCo XeMay1 = new XeMay();
+            XeCo XeMay1 = new XeMay("x", "696969", "HXP con cho","COn cho HxP chet vVCL");
             Nguoi B = new Nguoi();
             a.themXe(XeMay1, B);
             Console.WriteLine(XeMay1.maXe);
@@ -48,5 +48,28 @@ namespace DoAnCuoiKi
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
         }
+
+        //Delegate tính tiền lúc xe đi ra (1)
+        //Delegate này sẽ chỉ các cách thức thanh toán: momo, viettel pay, tienmat, quetthe, airpay, zalopay
+
+        //Delegate tính tiền gửi xe (2)
+        //Delegate này sẽ tính tiền các loại xe khác nhau như: 4 class trên
+
+        //Delegate status loại xe (3)
+        //Delegate này sẽ thông báo status của loại xe tương ứng
+
+        //Delegate hành động của người quản lý (4)
+        //Delegate này sẽ bao gồm: quét dọn, kiểm tra, đóng cửa, mở cửa
+
+        //Delegate tiền trả = với lại tiền pt, tiền trả > tiền phải trả
+        //delegate(tiền trả = với lại tiền pt) này sẽ xác nhận đã thanh toán thành công
+        //delegate(tiền trả > tiền phải trả) thối tiền thừa và xác nhận thanh toán thành công
+
+        //===========================
+        //chia ra 3 class chính để từng thằng xây delegate
+        //QuanLy
+        //Nguoi 
+        //XeCo
+
     }
 }

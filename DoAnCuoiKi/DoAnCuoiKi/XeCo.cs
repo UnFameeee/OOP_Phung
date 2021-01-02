@@ -9,7 +9,6 @@ namespace DoAnCuoiKi
         //Khai báo thuộc tính
         string _maXe;
         protected Scanner _loaiXe;
-        protected string _bienSoXe;
         protected string _hangXe;
         DateTime _ngayGio;
         public string maXe
@@ -22,11 +21,6 @@ namespace DoAnCuoiKi
         {
             set { this._loaiXe = value; }
             get { return this._loaiXe; }
-        }
-        public string bienSoXe
-        {
-            set { this._bienSoXe = value; }
-            get { return this._bienSoXe; }
         }
         public string hangXe
         {
@@ -43,22 +37,19 @@ namespace DoAnCuoiKi
         public XeCo()
         {
             this.maXe = "";
-            this.bienSoXe = null;
             this.hangXe = null;
             this.ngayGio = DateTime.Now;
         }
 
-        public XeCo(string maXe, string bienSoXe, string hangXe, DateTime ngayGio)
+        public XeCo(string maXe, string hangXe)
         {
             this.maXe = maXe;
-            this.bienSoXe = bienSoXe;
             this.hangXe = hangXe;
-            this.ngayGio = ngayGio;
+            this.ngayGio = DateTime.Now;
         }
         public XeCo(XeCo xe)
         {
             this.maXe = xe.maXe;
-            this.bienSoXe = xe.bienSoXe;
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
         }

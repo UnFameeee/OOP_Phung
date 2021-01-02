@@ -50,6 +50,7 @@
     <Compile Include="XeCo.cs" />
     <Compile Include="XeDap.cs" />
     <Compile Include="XeDapDien.cs" />
+    <Compile Include="XeHienDai.cs" />
     <Compile Include="XeHoi.cs" />
     <Compile Include="XeMay.cs" />
   </ItemGroup>

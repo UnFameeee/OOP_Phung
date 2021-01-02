@@ -10,17 +10,14 @@ namespace DoAnCuoiKi
     {
         public XeDap() : base()
         {
-            this.bienSoXe = null;
             this.loaiXe = Scanner.xeDap;
         }
-        public XeDap(string maXe, string bienSoXe, string hangXe, DateTime ngayGio) : base(maXe, bienSoXe, hangXe, ngayGio)
+        public XeDap(string maXe, string hangXe) : base(maXe, hangXe)
         {
-            this.bienSoXe = null;
             this.loaiXe = Scanner.xeDap;
         }
         public XeDap(XeCo xe) : base(xe)
         {
-            this.bienSoXe = null;
             this.loaiXe = Scanner.xeDap;
         }
         public override string anhXe()

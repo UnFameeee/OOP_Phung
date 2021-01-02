@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace DoAnCuoiKi
 {
-    public class XeDapDien : XeCo
+    public class XeDapDien : XeCo, IXeHienDai
     {
         //Khai báo thuộc tính
+        //Interface
+        public string BienSoXe { set; get; }
+        //class XeDapDien
         private string _binhDien;
         public string binhDien
         {
@@ -19,20 +22,24 @@ namespace DoAnCuoiKi
         //Khai báo phương thức
         public XeDapDien() : base()
         {
+            this.BienSoXe = "";
+            this.loaiXe = Scanner.xeDapDien;
         }
-        public XeDapDien(string maXe, string bienSoXe, string hangXe, DateTime ngayGio, string BinhDien) : base(maXe, bienSoXe, hangXe, ngayGio)
+        public XeDapDien(string maXe, string BienSoXe, string hangXe, string BinhDien) : base(maXe, hangXe)
         {
+            this.BienSoXe = BienSoXe;
             this.binhDien = binhDien;
             this.loaiXe = Scanner.xeDapDien;
         }
-        public XeDapDien(XeCo xe, string binhDien) : base(xe)
+        public XeDapDien(XeCo xe, string binhDien, string BienSoXe) : base(xe)
         {
+            this.BienSoXe = BienSoXe;
             this.binhDien = binhDien;
             this.loaiXe = Scanner.xeDapDien;
         }
         public override string anhXe()
         {
-            return $"\nMa xe: {this.maXe} \nBien so xe: {this.bienSoXe} \nBinh dien: {this.binhDien} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+            return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nBinh dien: {this.binhDien} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
     }
 }
