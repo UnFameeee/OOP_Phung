@@ -47,10 +47,19 @@ namespace DoAnCuoiKi
             Console.WriteLine(XeMay1.anhXe());
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            QuanLyBaiGiuXe.HinhThucThanhToan hinhThucThanhToan = new QuanLyBaiGiuXe.HinhThucThanhToan(QuanLyBaiGiuXe.ViettelPay);
+            Console.WriteLine(a.ChonCachThuc(hinhThucThanhToan));
         }
 
         //Delegate tính tiền lúc xe đi ra (1)
-        //Delegate này sẽ chỉ các cách thức thanh toán: momo, viettel pay, tienmat, quetthe, airpay, zalopay
+        //Delegate này sẽ chỉ các hình thức thanh toán: momo, viettel pay, tienmat, quetthe, airpay, zalopay
 
         //Delegate tính tiền gửi xe (2)
         //Delegate này sẽ tính tiền các loại xe khác nhau như: 4 class trên
