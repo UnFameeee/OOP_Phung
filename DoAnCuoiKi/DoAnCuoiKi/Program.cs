@@ -47,6 +47,14 @@ namespace DoAnCuoiKi
             Console.WriteLine(XeMay1.anhXe());
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
+            Console.WriteLine(a.xuLyLayXe(XeDap1, A,a.tinhTienTheoNgay));
+            //a.TTXeTrongBai.Remove(A.theXe);
+            //foreach (KeyValuePair<int, ThongTinXeTrongBai> item in a.TTXeTrongBai)
+            //{
+            //    if (item.Key == A.theXe)
+            //        Console.WriteLine("=========CO===============");
+
+            //}
         }
 
         //Delegate tính tiền lúc xe đi ra (1)
