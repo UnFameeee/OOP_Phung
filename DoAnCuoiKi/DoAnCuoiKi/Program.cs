@@ -31,14 +31,23 @@ namespace DoAnCuoiKi
             Console.WriteLine(a.tongSoXe());
             Console.WriteLine(a.statusBaiXe());
             Console.WriteLine($"the xe: {A.theXe}");
-            XeCo XeMay1 = new XeMay("x", "696969", "HXP con cho","COn cho HxP chet vVCL");
+
+            XeCo XeMay1 = new XeMay("x", "696969", "123","456");
             Nguoi B = new Nguoi();
             a.themXe(XeMay1, B);
             Console.WriteLine(XeMay1.maXe);
+
+            //In ra tổng số xe
             Console.WriteLine(a.tongSoXe());
-            Console.WriteLine(a.statusBaiXe());
-            Console.WriteLine($"the xe: {B.theXe}");
+            //In ra status của cả bãi xe
+            //Console.WriteLine(a.statusBaiXe());
+            //Delegate gọi đến để in ra status của từng loại xe
+            QuanLyBaiGiuXe.delegateStatusLoaiXe sttxedap = new QuanLyBaiGiuXe.delegateStatusLoaiXe(a.statusXeDap);
+            Console.WriteLine(a.statusLoaiXe(sttxedap));
+
+            //Console.WriteLine($"the xe: {B.theXe}"); test in thẻ xe
             //---------------------------------------------------
+
             // -----------------------TEST - NMD-----------------------
             Console.WriteLine("==============");
             Console.WriteLine("===Xe Dap======");
@@ -48,13 +57,7 @@ namespace DoAnCuoiKi
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
             Console.WriteLine(a.xuLyLayXe(XeDap1, A,a.tinhTienTheoNgay));
-            //a.TTXeTrongBai.Remove(A.theXe);
-            //foreach (KeyValuePair<int, ThongTinXeTrongBai> item in a.TTXeTrongBai)
-            //{
-            //    if (item.Key == A.theXe)
-            //        Console.WriteLine("=========CO===============");
 
-            //}
         }
 
         //Delegate tính tiền lúc xe đi ra (1)
@@ -72,12 +75,5 @@ namespace DoAnCuoiKi
         //Delegate tiền trả = với lại tiền pt, tiền trả > tiền phải trả
         //delegate(tiền trả = với lại tiền pt) này sẽ xác nhận đã thanh toán thành công
         //delegate(tiền trả > tiền phải trả) thối tiền thừa và xác nhận thanh toán thành công
-
-        //===========================
-        //chia ra 3 class chính để từng thằng xây delegate
-        //QuanLy
-        //Nguoi 
-        //XeCo
-
     }
 }

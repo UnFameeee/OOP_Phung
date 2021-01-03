@@ -84,6 +84,28 @@ namespace DoAnCuoiKi
             return $"Xe dap: {sucChua - slXe[0]} slot\nXe dap dien: {sucChua - slXe[1]} slot" +
                 $"\nXe may: {sucChua - slXe[2]} slot\nXe hoi: {sucChua - slXe[3]} slot";
         }
+        public delegate string delegateStatusLoaiXe();
+        public string statusLoaiXe(delegateStatusLoaiXe stt)
+        {
+            string kq = stt();
+            return kq;
+        }
+        public string statusXeDap()
+        {
+            return $"Xe dap: {sucChua - slXe[0]} slot";
+        }
+        public string statusXeDapDien()
+        {
+            return $"Xe dap dien: {sucChua - slXe[1]} slot";
+        }
+        public string statusXeMay()
+        {
+            return $"Xe may: {sucChua - slXe[2]} slot"; ;
+        }
+        public string statusXeHoi()
+        {
+            return $"Xe hoi: {sucChua - slXe[3]} slot"; ;
+        }
 
         //M.Đăng
         public string thongTinXe(int maTheXe, DateTime thoiGianXeVao, DateTime thoiGianXacNhan,string anhXeVao,string anhNguoiVao, string anhXeRa, string anhNguoiRa)
