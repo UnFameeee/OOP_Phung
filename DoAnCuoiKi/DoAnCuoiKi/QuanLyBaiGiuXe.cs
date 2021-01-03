@@ -67,10 +67,6 @@ namespace DoAnCuoiKi
                 }
             }
         }
-        public int slXeBatKy(Scanner x)
-        {
-            return slXe[(int)x];
-        }
         public int tongSoXe()
         {
             int sum = 0;
