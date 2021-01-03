@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace DoAnCuoiKi
 {
     public enum Scanner { xeDap, xeDapDien, xeMay, xeHoi }
+    public enum ThanhToan { MoMo, ViettelPay, AirPay, ZaloPay, QuetThe, TienMat }
     public struct ThongTinXeTrongBai
     {
         public string maXe;
@@ -171,8 +172,49 @@ namespace DoAnCuoiKi
             return temp.Hours;
         }
 
+        //wibu
+        public static ThanhToan QuetThe()
+        {
+            return ThanhToan.QuetThe;
+        }
+        public static ThanhToan AirPay()
+        {
+            return ThanhToan.AirPay;
+        }
+        public static ThanhToan MoMo()
+        {
+            return ThanhToan.MoMo;
+        }
+        public static ThanhToan ViettelPay()
+        {
+            return ThanhToan.ViettelPay;
+        }
+        public static ThanhToan ZaloPay()
+        {
+            return ThanhToan.ZaloPay;
+        }
+        public static ThanhToan TienMat()
+        {
+            return ThanhToan.TienMat;
+        }
+        public string ChonCachThuc(HinhThucThanhToan hinhThucThanhToan)
+        {
+            ThanhToan kq = hinhThucThanhToan();
+            if (kq == ThanhToan.QuetThe)
+                return "Thanh toan bang hinh thuc quet the";
+            else if (kq == ThanhToan.AirPay)
+                return "Thanh toan bang hinh thuc AirPay";
+            else if (kq == ThanhToan.MoMo)
+                return "Thanh toan bang hinh thuc MoMo";
+            else if (kq == ThanhToan.ViettelPay)
+                return "Thanh toan bang hinh thuc ViettelPay";
+            else if (kq == ThanhToan.ZaloPay)
+                return "Thanh toan bang hinh thuc ZaloPay";
+            return "Thanh toan bang hinh thuc tien mat";
+        }
+        public delegate ThanhToan HinhThucThanhToan();
         //Tổng kết số tiền thu được
         //Status số tiền hiện đang có
-        //
+        
     }
 }
