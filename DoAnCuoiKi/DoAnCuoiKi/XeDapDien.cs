@@ -40,7 +40,7 @@ namespace DoAnCuoiKi
         {
             return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nBinh dien: {this.binhDien} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
-        public string deMay()
+        public static string deMay()
         {
             return "De may";
         }

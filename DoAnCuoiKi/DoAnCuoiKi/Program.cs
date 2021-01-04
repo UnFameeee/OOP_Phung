@@ -64,6 +64,9 @@ namespace DoAnCuoiKi
             Console.WriteLine(A.anhNguoi());
             QuanLyBaiGiuXe.tinhTienGXe cachTinhTien = new QuanLyBaiGiuXe.tinhTienGXe(quanly1.tinhTienTheoGio);
             Console.WriteLine(quanly1.xuLyLayXe(XeDap1, A, cachTinhTien));
+            //Khởi động xe
+            XeCo.cachKhoiDong cachkd = new XeCo.cachKhoiDong(XeDap.gatChanTrong);
+            Console.WriteLine(XeDap1.khoiDongXe(cachkd));
 
         }
         private static object Quanly1_eventUpdateDriver(params object[] thamso)
