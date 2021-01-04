@@ -60,7 +60,20 @@ namespace DoAnCuoiKi
             Console.WriteLine(XeMay1.anhXe());
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
-            Console.WriteLine(quanly1.xuLyLayXe(XeDap1, A, quanly1.tinhTienTheoNgay));
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //Console.WriteLine(quanly1.xuLyLayXe(XeDap1, A, quanly1.tinhTienTheoNgay));
 
 
 
