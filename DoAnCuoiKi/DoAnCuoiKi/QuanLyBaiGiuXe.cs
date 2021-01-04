@@ -21,6 +21,7 @@ namespace DoAnCuoiKi
     {
         //Khai báo thuộc tính
         public const int sucChua = 1000;
+        public int tongTien = 500000;
         private int[] slXe = new int[4];
         public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
         public List<string> danhSachTTXeDaLay =new List<string>();
@@ -212,5 +213,20 @@ namespace DoAnCuoiKi
         //Tổng kết số tiền thu được
         //Status số tiền hiện đang có
         
+        //event sửa chữa và bảo trì bãi xe
+        public delegate object SCvaBT(params object[] thamso);
+        public event SCvaBT eventSCvaBT;
+        public object thucThiSCBT(params object[] thamso)
+        {
+            return eventSCvaBT?.Invoke(thamso);
+        }
+
+        public delegate object update(params object[] thamso);
+        public event update eventUpdateDriver;
+        public object thucThiUpdate(params object[] thamso)
+        {
+            return eventUpdateDriver?.Invoke(thamso);
+        }
+
     }
 }
