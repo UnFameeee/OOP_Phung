@@ -7,33 +7,12 @@ namespace DoAnCuoiKi
     public abstract class XeCo
     {
         //Khai báo thuộc tính
-        string _maXe;
-        protected Scanner _loaiXe;
-        protected string _hangXe;
-        DateTime _ngayGio;
-        public string maXe
-        {
-            set { this._maXe = value; }
-            get { return this._maXe; }
-        }
+        public string maXe { set; get; }
+        public Scanner loaiXe { set; get; }
+        public string hangXe { set; get; }
+        public DateTime ngayGio { set; get; }
 
-        public Scanner loaiXe
-        {
-            set { this._loaiXe = value; }
-            get { return this._loaiXe; }
-        }
-        public string hangXe
-        {
-            set { this._hangXe = value; }
-            get { return this._hangXe; }
-        }
-        public DateTime ngayGio
-        {
-            set { this._ngayGio = value; }
-            get { return this._ngayGio; }
-        }
-
-        //Khai báo phương thức
+        //Hàm khởi tạo
         public XeCo()
         {
             this.maXe = "";
@@ -52,11 +31,21 @@ namespace DoAnCuoiKi
             this.maXe = xe.maXe;
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
+            this.loaiXe = xe.loaiXe;
         }
+        //Các phương thức
         public Scanner getTypeOfVehicle()
         {
             return this.loaiXe;
         }
+        //Phương thức ảo
         public abstract string anhXe();
+        //Delegate (Minh Đăng)
+        public delegate string cachKhoiDong();
+        public string khoiDongXe(cachKhoiDong khoiDong)
+        {
+            return khoiDong();
+        }
+
     }
 }
