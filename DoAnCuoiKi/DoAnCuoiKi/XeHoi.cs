@@ -44,5 +44,9 @@ namespace DoAnCuoiKi
         {
             return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nSo cua xe: {this.soCuaXe} \nMau xe: {this.mauXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
+        public static string deMay()
+        {
+            return "De may";
+        }
     }
 }

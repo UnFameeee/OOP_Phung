@@ -18,7 +18,7 @@ namespace DoAnCuoiKi
             set { this._phankhoi = value; }
             get { return _phankhoi; }
         }
-        //Khai báo phương thức
+        //Hàm khởi tạo
         public XeMay() : base()
         {
             this.BienSoXe = "";
@@ -37,10 +37,18 @@ namespace DoAnCuoiKi
             this.phankhoi = phankhoi;
             this.loaiXe = Scanner.xeMay;
         }
-
+        //Các phương thức
         public override string anhXe()
         {
             return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nPhan khoi: {this.phankhoi} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+        }
+        public static string deMay()
+        {
+            return "De may";
+        }
+        public static string dapBanDap()
+        {
+            return "Dap ban dap";
         }
     }
 }
