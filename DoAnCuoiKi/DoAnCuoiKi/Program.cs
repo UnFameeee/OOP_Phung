@@ -32,7 +32,7 @@ namespace DoAnCuoiKi
             Console.WriteLine(quanly1.statusBaiXe());
             Console.WriteLine($"the xe: {A.theXe}");
 
-            XeCo XeMay1 = new XeMay("x", "696969", "123","456");
+            XeCo XeMay1 = new XeMay("x", "696969", "123", "456");
             Nguoi B = new Nguoi();
             quanly1.themXe(XeMay1, B);
             Console.WriteLine(XeMay1.maXe);
@@ -52,33 +52,20 @@ namespace DoAnCuoiKi
             Console.WriteLine((string)quanly1.thucThiSCBT());
             quanly1.eventUpdateDriver += Quanly1_eventUpdateDriver;
             Console.WriteLine((string)quanly1.thucThiUpdate());
+            //---------------------------------------------------
+
             // -----------------------TEST - NMD-----------------------
-            Console.WriteLine("=======================================================================");
-            Console.WriteLine("======Xe Dap======");
+            Console.WriteLine("==============");
+            Console.WriteLine("===Xe Dap======");
             Console.WriteLine(XeDap1.anhXe());
-            Console.WriteLine("======Xe May======");
+            Console.WriteLine("=====Xe May======");
             Console.WriteLine(XeMay1.anhXe());
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            //Console.WriteLine(quanly1.xuLyLayXe(XeDap1, A, quanly1.tinhTienTheoNgay));
-
-
+            QuanLyBaiGiuXe.tinhTienGXe cachTinhTien = new QuanLyBaiGiuXe.tinhTienGXe(quanly1.tinhTienTheoGio);
+            Console.WriteLine(quanly1.xuLyLayXe(XeDap1, A, cachTinhTien));
 
         }
-
         private static object Quanly1_eventUpdateDriver(params object[] thamso)
         {
             return "Update Driver!!!";
@@ -88,8 +75,7 @@ namespace DoAnCuoiKi
         {
             return "Bai xe dang trong tinh trang bao tri va sua chua";
         }
-
-        //Delegate tra? tiền lúc xe đi ra (1)
+        //Delegate tính tiền lúc xe đi ra (1)
         //Delegate này sẽ chỉ các cách thức thanh toán: momo, viettel pay, tienmat, quetthe, airpay, zalopay
 
         //Delegate tính tiền gửi xe (2)
