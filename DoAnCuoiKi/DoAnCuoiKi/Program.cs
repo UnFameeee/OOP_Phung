@@ -23,44 +23,60 @@ namespace DoAnCuoiKi
 
 
             //--------------Đã Xong Q.Thắng----------------------
-            QuanLyBaiGiuXe a = new QuanLyBaiGiuXe();
+            QuanLyBaiGiuXe quanly1 = new QuanLyBaiGiuXe();
             XeCo XeDap1 = new XeDap();
             Nguoi A = new Nguoi();
-            a.themXe(XeDap1, A);
+            quanly1.themXe(XeDap1, A);
             Console.WriteLine(XeDap1.maXe);
-            Console.WriteLine(a.tongSoXe());
-            Console.WriteLine(a.statusBaiXe());
+            Console.WriteLine(quanly1.tongSoXe());
+            Console.WriteLine(quanly1.statusBaiXe());
             Console.WriteLine($"the xe: {A.theXe}");
 
             XeCo XeMay1 = new XeMay("x", "696969", "123","456");
             Nguoi B = new Nguoi();
-            a.themXe(XeMay1, B);
+            quanly1.themXe(XeMay1, B);
             Console.WriteLine(XeMay1.maXe);
 
             //In ra tổng số xe
-            Console.WriteLine(a.tongSoXe());
+            Console.WriteLine(quanly1.tongSoXe());
+
             //In ra status của cả bãi xe
             //Console.WriteLine(a.statusBaiXe());
+
             //Delegate gọi đến để in ra status của từng loại xe
-            QuanLyBaiGiuXe.delegateStatusLoaiXe sttxedap = new QuanLyBaiGiuXe.delegateStatusLoaiXe(a.statusXeDap);
-            Console.WriteLine(a.statusLoaiXe(sttxedap));
+            QuanLyBaiGiuXe.delegateStatusLoaiXe sttxedap = new QuanLyBaiGiuXe.delegateStatusLoaiXe(quanly1.statusXeDap);
+            Console.WriteLine(quanly1.statusLoaiXe(sttxedap));
 
-            //Console.WriteLine($"the xe: {B.theXe}"); test in thẻ xe
-            //---------------------------------------------------
-
+            //test event update driver và event bảo trì sữa chữa
+            quanly1.eventSCvaBT += Quanly1_eventSCvaBT;
+            Console.WriteLine((string)quanly1.thucThiSCBT());
+            quanly1.eventUpdateDriver += Quanly1_eventUpdateDriver;
+            Console.WriteLine((string)quanly1.thucThiUpdate());
             // -----------------------TEST - NMD-----------------------
-            Console.WriteLine("==============");
-            Console.WriteLine("===Xe Dap======");
+            Console.WriteLine("=======================================================================");
+            Console.WriteLine("======Xe Dap======");
             Console.WriteLine(XeDap1.anhXe());
-            Console.WriteLine("=====Xe May======");
+            Console.WriteLine("======Xe May======");
             Console.WriteLine(XeMay1.anhXe());
             Console.WriteLine("=====Anh Nguoi=====");
             Console.WriteLine(A.anhNguoi());
-            Console.WriteLine(a.xuLyLayXe(XeDap1, A,a.tinhTienTheoNgay));
+            Console.WriteLine(quanly1.xuLyLayXe(XeDap1, A, quanly1.tinhTienTheoNgay));
+
+
 
         }
 
-        //Delegate tính tiền lúc xe đi ra (1)
+        private static object Quanly1_eventUpdateDriver(params object[] thamso)
+        {
+            return "Update Driver!!!";
+        }
+
+        private static object Quanly1_eventSCvaBT(params object[] thamso)
+        {
+            return "Bai xe dang trong tinh trang bao tri va sua chua";
+        }
+
+        //Delegate tra? tiền lúc xe đi ra (1)
         //Delegate này sẽ chỉ các cách thức thanh toán: momo, viettel pay, tienmat, quetthe, airpay, zalopay
 
         //Delegate tính tiền gửi xe (2)
