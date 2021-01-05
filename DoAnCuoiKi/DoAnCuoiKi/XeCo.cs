@@ -20,9 +20,9 @@ namespace DoAnCuoiKi
             this.ngayGio = DateTime.Now;
         }
 
-        public XeCo(string maXe, string hangXe)
+        public XeCo(string hangXe)
         {
-            this.maXe = maXe;
+            this.maXe = "";
             this.hangXe = hangXe;
             this.ngayGio = DateTime.Now;
         }

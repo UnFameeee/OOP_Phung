@@ -12,23 +12,19 @@ namespace DoAnCuoiKi
         //Interface
         public string BienSoXe { set; get; }
         //class XeMay
-        private string _phankhoi;
-        public string phankhoi
-        {
-            set { this._phankhoi = value; }
-            get { return _phankhoi; }
-        }
+        private string phanKhoi;
         //Hàm khởi tạo
         public XeMay() : base()
         {
             this.BienSoXe = "";
-            this.phankhoi = "";
+            this.phanKhoi = "";
+            this.hangXe = "";
             this.loaiXe = Scanner.xeMay;
         }
-        public XeMay(string maXe, string BienSoXe, string hangXe, string phankhoi) : base(maXe, hangXe)
+        public XeMay(string BienSoXe, string hangXe, string phanKhoi) : base(hangXe)
         {
             this.BienSoXe = BienSoXe;
-            this.phankhoi = phankhoi;
+            this.phanKhoi = phanKhoi;
             this.loaiXe = Scanner.xeMay;
         }
         public XeMay(XeMay xe)
@@ -38,12 +34,12 @@ namespace DoAnCuoiKi
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
             this.BienSoXe = xe.BienSoXe;
-            this.phankhoi = xe.phankhoi;
+            this.phanKhoi = xe.phanKhoi;
         }
         //Các phương thức
         public override string anhXe()
         {
-            return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nPhan khoi: {this.phankhoi} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+            return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nPhan khoi: {this.phanKhoi} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}\n";
         }
         //Minh Đăng
         public static string deMay()

@@ -13,7 +13,7 @@ namespace DoAnCuoiKi
         {
             this.loaiXe = Scanner.xeDap;
         }
-        public XeDap(string maXe, string hangXe) : base(maXe, hangXe)
+        public XeDap(string hangXe) : base(hangXe)
         {
             this.loaiXe = Scanner.xeDap;
         }
@@ -27,7 +27,7 @@ namespace DoAnCuoiKi
         //Các phương thức
         public override string anhXe()
         {
-            return $"\nMa xe: {this.maXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+            return $"\nMa xe: {this.maXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio} \n";
         }
         //Minh Đăng
         public static string gatChanTrong()
