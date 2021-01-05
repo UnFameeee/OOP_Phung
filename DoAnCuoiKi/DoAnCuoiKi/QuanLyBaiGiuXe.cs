@@ -115,9 +115,24 @@ namespace DoAnCuoiKi
         {
             return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {anhXeVao}\nAnh xe ra: {anhXeRa} \nAnh NguoiGuiXe vao:  {anhNguoiVao} \nAnh NguoiGuiXe ra: {anhNguoiRa}";
         }
-        public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, tinhTienGXe cachTinhTien)
+        public string xuLyTheXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien, int sogio, Scanner loaixe)
+        {
+            foreach (ThongTinXeTrongBai TimKiem in this.TTXeTrongBai)
+            {
+                if (xe.maXe == TimKiem.maXe && nguoilayxe.anhNguoi() == TimKiem.anhNguoi && xe.anhXe() == TimKiem.anhXe)
+                    return thanhToan(hinhThucThanhToan, tienNguoiGuiXe, cachTinhTien, sogio, loaixe);
+            }
+            return "Canh bao: Anh khong khop";
+        }
+        public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien, int sogio, Scanner loaixe)
         {
             int maTheXe = nguoilayxe.theXe;
+            if (maTheXe == null)
+            {
+                thanhToan(hinhThucThanhToan, tienNguoiGuiXe, cachTinhTien, sogio, loaixe);
+                tongTien += 50 + tongTien;
+                xuLyTheXe(xe, nguoilayxe, hinhThucThanhToan, tienNguoiGuiXe, cachTinhTien, sogio, loaixe);
+            }
             if (thucHienXacNhan(maTheXe, xe, nguoilayxe) == true)
             {
                 DateTime thoiGianXacNhan = DateTime.Now;
@@ -133,7 +148,7 @@ namespace DoAnCuoiKi
                 return $"So tien phai tra la: {sotien} \n";
             }
             else
-                return $"Canh bao: Anh khong khop";
+                return "Canh bao: Anh khong khop";
         }
         private bool thucHienXacNhan(int maTheXe, XeCo xe, NguoiGuiXe nguoilayxe)
         {
@@ -229,6 +244,47 @@ namespace DoAnCuoiKi
         }
         public delegate ThanhToan HinhThucThanhToan();
         //Tổng kết số tiền thu được
+        public int themTienKhiThieu(int tienNguoiGuiXe, int tienThem)
+        {
+            return tienNguoiGuiXe + tienThem;
+        }
+        public int tienSauKhiThoiTien(ref int tienNguoiGuiXe, int tienCanTra)
+        {
+            tienNguoiGuiXe -= tienCanTra;
+            return tienCanTra;
+        }
+        public string thanhToan (HinhThucThanhToan hinhThucThanhToan,int tienNguoiGuiXe, tinhTienGXe tinhTien, int sogio, Scanner loaixe)
+        {
+            ThanhToan kq = hinhThucThanhToan();
+            if (kq == ThanhToan.TienMat)
+            {
+                if (tienNguoiGuiXe == tinhTienGuiXe(tinhTien, sogio, loaixe))
+                {
+                    tongTien += tienNguoiGuiXe;
+                }
+                else if (tienNguoiGuiXe < tinhTienGuiXe(tinhTien, sogio, loaixe))
+                {
+                    return "Thanh toan khong du! Vui long them tien";
+                }
+                else
+                {
+                    tongTien += tienSauKhiThoiTien(ref tienNguoiGuiXe, tinhTienGuiXe(tinhTien, sogio, loaixe));
+                    return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
+                }
+            }
+            else
+            {
+                if (tienNguoiGuiXe == tinhTienGuiXe(tinhTien, sogio, loaixe))
+                {
+                    tongTien += tienNguoiGuiXe;
+                }
+                else if (tienNguoiGuiXe < tinhTienGuiXe(tinhTien, sogio, loaixe))
+                {
+                    return "Thanh toan khong du! Vui long them tien";
+                }
+            }
+            return "Thanh toan thanh cong!";
+        }
         //Status số tiền hiện đang có
 
         //event sửa chữa và bảo trì bãi xe
