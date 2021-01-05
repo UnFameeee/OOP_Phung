@@ -26,3 +26,17 @@ C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.cspr
 C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
 C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
 C:\Users\zange\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
+C:\Users\LENOVO\Desktop\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe.config
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.exe
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\bin\Debug\DoAnCuoiKi.pdb
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csprojAssemblyReference.cache
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.csproj.CoreCompileInputs.cache
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.exe
+D:\OOP\Cuối kì\OOP_Phung\DoAnCuoiKi\DoAnCuoiKi\obj\Debug\DoAnCuoiKi.pdb

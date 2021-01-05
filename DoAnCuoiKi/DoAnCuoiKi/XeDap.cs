@@ -8,6 +8,7 @@ namespace DoAnCuoiKi
 {
     public class XeDap : XeCo
     {
+        //Hàm khởi tạo
         public XeDap() : base()
         {
             this.loaiXe = Scanner.xeDap;
@@ -16,13 +17,22 @@ namespace DoAnCuoiKi
         {
             this.loaiXe = Scanner.xeDap;
         }
-        public XeDap(XeCo xe) : base(xe)
+        public XeDap(XeDap xe)
         {
-            this.loaiXe = Scanner.xeDap;
+            this.maXe = xe.maXe;
+            this.loaiXe = xe.loaiXe;
+            this.hangXe = xe.hangXe;
+            this.ngayGio = xe.ngayGio;
         }
+        //Các phương thức
         public override string anhXe()
         {
             return $"\nMa xe: {this.maXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+        }
+        //Minh Đăng
+        public static string gatChanTrong()
+        {
+            return "Gat chan trong";
         }
     }
 }

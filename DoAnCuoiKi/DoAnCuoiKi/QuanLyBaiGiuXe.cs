@@ -21,10 +21,16 @@ namespace DoAnCuoiKi
     {
         //Khai báo thuộc tính
         public const int sucChua = 1000;
+        public int tongTien = 500000;
         private int[] slXe = new int[4];
         public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
-        public List<string> danhSachTTXeDaLay =new List<string>();
+        public List<string> danhSachTTXeDaLay = new List<string>();
         public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai = new Dictionary<int, ThongTinXeTrongBai>();
+        //Hàm khởi tạo
+        public QuanLyBaiGiuXe()
+        {
+            this.tongTien = 500000;
+        }
         //Thắng
         List<int> listTheXe = new List<int>(1000000) { 0 };
         public int phatTheXe()
@@ -40,7 +46,7 @@ namespace DoAnCuoiKi
             listTheXe.Add(n);
             return n;
         }
-        public void themXe(XeCo xe, Nguoi nguoi)
+        public void themXe(XeCo xe, NguoiGuiXe nguoi)
         {
             int hangXe = (int)xe.getTypeOfVehicle();
             for (int i = 0; i < sucChua; i++)
@@ -62,7 +68,7 @@ namespace DoAnCuoiKi
                     TTXTB.anhXe = xe.anhXe();
                     TTXTB.hang = hangXe;
                     TTXTB.cot = i;
-                    TTXeTrongBai.Add(nguoi.theXe, TTXTB);           
+                    TTXeTrongBai.Add(nguoi.theXe, TTXTB);
                     break;
                 }
             }
@@ -105,39 +111,52 @@ namespace DoAnCuoiKi
         }
 
         //M.Đăng
-        public string thongTinXe(int maTheXe, DateTime thoiGianXeVao, DateTime thoiGianXacNhan,string anhXeVao,string anhNguoiVao, string anhXeRa, string anhNguoiRa)
+        public string thongTinXe(int maTheXe, DateTime thoiGianXeVao, DateTime thoiGianXacNhan, string anhXeVao, string anhNguoiVao, string anhXeRa, string anhNguoiRa)
         {
-            return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {anhXeVao}\nAnh xe ra: {anhXeRa} \nAnh nguoi vao:  {anhNguoiVao} \nAnh nguoi ra: {anhNguoiRa}";
+            return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {anhXeVao}\nAnh xe ra: {anhXeRa} \nAnh NguoiGuiXe vao:  {anhNguoiVao} \nAnh NguoiGuiXe ra: {anhNguoiRa}";
         }
-        public string xuLyLayXe(XeCo xe, Nguoi nguoilayxe, tinhTienGXe cachTinhTien)
+        public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, tinhTienGXe cachTinhTien)
         {
             int maTheXe = nguoilayxe.theXe;
-            string anhXeVao, anhNguoiVao,anhXeRa, anhNguoiRa;
+            if (thucHienXacNhan(maTheXe, xe, nguoilayxe) == true)
+            {
+                DateTime thoiGianXacNhan = DateTime.Now;
+                int loaiXe = (int)xe.getTypeOfVehicle();
+                string anhNguoiVao = this.TTXeTrongBai[maTheXe].anhNguoi;
+                string anhXeVao = this.TTXeTrongBai[maTheXe].anhXe;
+                //Loại bỏ các dữ liệu về xe trong cơ sở dữ liệu
+                xoaThongTinXe(maTheXe, loaiXe);
+                //Tính tiền gửi xe
+                int sotien = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), (Scanner)loaiXe);
+                //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
+                this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
+                return $"So tien phai tra la: {sotien} \n";
+            }
+            else
+                return $"Canh bao: Anh khong khop";
+        }
+        private bool thucHienXacNhan(int maTheXe, XeCo xe, NguoiGuiXe nguoilayxe)
+        {
+            string anhXeVao, anhNguoiVao, anhXeRa, anhNguoiRa;
             anhNguoiVao = this.TTXeTrongBai[maTheXe].anhNguoi;
             anhXeVao = this.TTXeTrongBai[maTheXe].anhXe;
             anhXeRa = xe.anhXe();
             anhNguoiRa = nguoilayxe.anhNguoi();
-            if (anhXeVao==anhXeRa&&anhNguoiVao==anhNguoiRa)
-            {
-                DateTime thoiGianXacNhan = DateTime.Now;
-                int loaiXe = (int)xe.getTypeOfVehicle();
-                //Loại bỏ các dữ liệu về xe trong cơ sở dữ liệu
-                slotXe[this.TTXeTrongBai[maTheXe].hang, this.TTXeTrongBai[maTheXe].cot] =0;
-                --slXe[loaiXe];
-                this.TTXeTrongBai.Remove(maTheXe);
-                //Tính tiền gửi xe
-                int sotien = tinhTienGuiXe(cachTinhTien,tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), (Scanner)loaiXe);
-                //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
-                this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe,xe.ngayGio,thoiGianXacNhan, anhXeVao,anhNguoiVao, anhXeRa, anhNguoiRa));
-                return $"So tien phai tra la: {sotien} \n";
-            }
+            if (anhXeVao == anhXeRa && anhNguoiVao == anhNguoiRa)
+                return true;
             else
-                return "Loi xac thuc.\n";
+                return false;
+        }
+        private void xoaThongTinXe(int maTheXe, int loaiXe)
+        {
+            slotXe[this.TTXeTrongBai[maTheXe].hang, this.TTXeTrongBai[maTheXe].cot] = 0;
+            --slXe[loaiXe];
+            this.TTXeTrongBai.Remove(maTheXe);
         }
         public delegate int tinhTienGXe(int sogio, Scanner loaixe);
-        public int tinhTienGuiXe(tinhTienGXe tinhTien,int sogio, Scanner loaixe)
+        public int tinhTienGuiXe(tinhTienGXe tinhTien, int sogio, Scanner loaixe)
         {
-            return tinhTien(sogio,loaixe);
+            return tinhTien(sogio, loaixe);
         }
         public int tinhTienTheoGio(int sogio, Scanner loaixe)
         {
@@ -157,10 +176,10 @@ namespace DoAnCuoiKi
             //Xe hơi: 40000/ngày
             int songay = sogio / 24;
             sogio = sogio % 24;
-            int tienngay=0;
+            int tienngay = 0;
             tienngay = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) * 4 * songay : 10000 * 4 * songay;
             int tiengio = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
-            return tienngay+tiengio;
+            return tienngay + tiengio;
         }
         public int tinhThoiGianGuiXe(DateTime timeGuiXe, DateTime timeNow)
         {
@@ -211,6 +230,20 @@ namespace DoAnCuoiKi
         public delegate ThanhToan HinhThucThanhToan();
         //Tổng kết số tiền thu được
         //Status số tiền hiện đang có
-        
+
+        //event sửa chữa và bảo trì bãi xe
+        public delegate object SCvaBT(params object[] thamso);
+        public event SCvaBT eventSCvaBT;
+        public object thucThiSCBT(params object[] thamso)
+        {
+            return eventSCvaBT?.Invoke(thamso);
+        }
+
+        public delegate object update(params object[] thamso);
+        public event update eventUpdateDriver;
+        public object thucThiUpdate(params object[] thamso)
+        {
+            return eventUpdateDriver?.Invoke(thamso);
+        }
     }
 }

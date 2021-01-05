@@ -12,14 +12,9 @@ namespace DoAnCuoiKi
         //Interface
         public string BienSoXe { set; get; }
         //class XeDapDien
-        private string _binhDien;
-        public string binhDien
-        {
-            set { this._binhDien = value; }
-            get { return this._binhDien; }
-        }
+        private string binhDien { get; }
 
-        //Khai báo phương thức
+        //Hàm khởi tạo
         public XeDapDien() : base()
         {
             this.BienSoXe = "";
@@ -31,15 +26,24 @@ namespace DoAnCuoiKi
             this.binhDien = binhDien;
             this.loaiXe = Scanner.xeDapDien;
         }
-        public XeDapDien(XeCo xe, string binhDien, string BienSoXe) : base(xe)
+        public XeDapDien(XeDapDien xe)
         {
-            this.BienSoXe = BienSoXe;
-            this.binhDien = binhDien;
-            this.loaiXe = Scanner.xeDapDien;
+            this.maXe = xe.maXe;
+            this.loaiXe = xe.loaiXe;
+            this.hangXe = xe.hangXe;
+            this.ngayGio = xe.ngayGio;
+            this.BienSoXe = xe.BienSoXe;
+            this.binhDien = xe.binhDien;
         }
+        //Các phương thức
         public override string anhXe()
         {
             return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nBinh dien: {this.binhDien} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+        }
+        //Minh Đăng
+        public static string deMay()
+        {
+            return "De may";
         }
     }
 }

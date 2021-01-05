@@ -12,7 +12,6 @@ namespace DoAnCuoiKi
         TruongNhom,
         QuanLy
     }
-    // check lai xem đúng code mày kh
     public class NhanVien : Nguoi
     {
         public string theNhanVien { get; }
