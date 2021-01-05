@@ -188,31 +188,31 @@ namespace DoAnCuoiKi
         }
 
         //wibu
-        public static ThanhToan QuetThe()
+        public static ThanhToan quetThe()
         {
             return ThanhToan.QuetThe;
         }
-        public static ThanhToan AirPay()
+        public static ThanhToan airPay()
         {
             return ThanhToan.AirPay;
         }
-        public static ThanhToan MoMo()
+        public static ThanhToan moMo()
         {
             return ThanhToan.MoMo;
         }
-        public static ThanhToan ViettelPay()
+        public static ThanhToan viettelPay()
         {
             return ThanhToan.ViettelPay;
         }
-        public static ThanhToan ZaloPay()
+        public static ThanhToan zaloPay()
         {
             return ThanhToan.ZaloPay;
         }
-        public static ThanhToan TienMat()
+        public static ThanhToan tienMat()
         {
             return ThanhToan.TienMat;
         }
-        public string ChonCachThuc(HinhThucThanhToan hinhThucThanhToan)
+        public string chonCachThuc(HinhThucThanhToan hinhThucThanhToan)
         {
             ThanhToan kq = hinhThucThanhToan();
             if (kq == ThanhToan.QuetThe)
