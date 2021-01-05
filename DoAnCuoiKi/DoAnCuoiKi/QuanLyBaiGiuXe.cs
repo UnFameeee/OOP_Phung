@@ -130,7 +130,7 @@ namespace DoAnCuoiKi
                 int sotien = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), (Scanner)loaiXe);
                 //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
                 this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
-                return $"So tien phai tra la: {sotien} \n";
+                return $"So tien phai tra la: {sotien}";
             }
             else
                 return $"Canh bao: Anh khong khop";

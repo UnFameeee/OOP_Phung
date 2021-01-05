@@ -13,9 +13,9 @@ namespace DoAnCuoiKi
         {
             this.theXe = -1;
         }
-        public NguoiGuiXe(string khuonMat, GioiTinh gioiTinh, string dangNguoi, int theXe):base(khuonMat,gioiTinh,dangNguoi)
+        public NguoiGuiXe(string khuonMat, GioiTinh gioiTinh, string dangNguoi):base(khuonMat,gioiTinh,dangNguoi)
         {
-            this.theXe = theXe;
+
         }
         public NguoiGuiXe(NguoiGuiXe x)
         {
