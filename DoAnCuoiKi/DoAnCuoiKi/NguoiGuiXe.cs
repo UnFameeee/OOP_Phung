@@ -9,13 +9,13 @@ namespace DoAnCuoiKi
     public class NguoiGuiXe:Nguoi
     {
         public int theXe { set; get; }
-        public NguoiGuiXe():base()
+        public NguoiGuiXe() : base()
         {
             this.theXe = -1;
         }
-        public NguoiGuiXe(string khuonMat, GioiTinh gioiTinh, string dangNguoi, int theXe):base(khuonMat,gioiTinh,dangNguoi)
+        public NguoiGuiXe(string khuonMat, GioiTinh gioiTinh, string dangNguoi) : base(khuonMat, gioiTinh, dangNguoi)
         {
-            this.theXe = theXe;
+
         }
         public NguoiGuiXe(NguoiGuiXe x)
         {
@@ -29,10 +29,29 @@ namespace DoAnCuoiKi
             return $"Gioi tinh:  {this.gioiTinh}\nKhuon mat:  {this.khuonMat} \nThe hinh: {this.dangNguoi}";
         }
         //Tiến
+        public string tatDenXe()
+        {
+            return "Tat den xe";
+        }
+        public string gatChanChong()
+        {
+            return "Gat chan chong";
+        }
+        public string layThe()
+        {
+            return "Lay the";
+        }
+        public string duaThe()
+        {
+            return "Dua The";
+        }
+        public string duaTien()
+        {
+            return "Dua Tien";
+        }
         public override string hanhDong(hanhDongNV hanhDongCuaKhach)
         {
             return hanhDongCuaKhach();
         }
-        
     }
 }
