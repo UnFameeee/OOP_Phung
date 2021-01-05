@@ -25,7 +25,7 @@ namespace DoAnCuoiKi
             //--------------Đã Xong Q.Thắng----------------------
             QuanLyBaiGiuXe quanly1 = new QuanLyBaiGiuXe();
             XeCo XeDap1 = new XeDap();
-            Nguoi A = new Nguoi();
+            NguoiGuiXe A = new NguoiGuiXe();
             quanly1.themXe(XeDap1, A);
             Console.WriteLine(XeDap1.maXe);
             Console.WriteLine(quanly1.tongSoXe());
@@ -33,7 +33,7 @@ namespace DoAnCuoiKi
             Console.WriteLine($"the xe: {A.theXe}");
 
             XeCo XeMay1 = new XeMay("x", "696969", "123", "456");
-            Nguoi B = new Nguoi();
+            NguoiGuiXe B = new NguoiGuiXe();
             quanly1.themXe(XeMay1, B);
             Console.WriteLine(XeMay1.maXe);
 
@@ -67,6 +67,10 @@ namespace DoAnCuoiKi
             //Khởi động xe
             XeCo.cachKhoiDong cachkd = new XeCo.cachKhoiDong(XeDap.gatChanTrong);
             Console.WriteLine(XeDap1.khoiDongXe(cachkd));
+            //hành động của nhân viên
+            NhanVien nam = new NhanVien();
+            NhanVien.hanhDongNV hd = new NhanVien.hanhDongNV(NhanVien.moCua);
+            Console.WriteLine(nam.hanhDong(hd));
 
         }
         private static object Quanly1_eventUpdateDriver(params object[] thamso)

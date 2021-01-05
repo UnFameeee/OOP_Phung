@@ -46,7 +46,7 @@ namespace DoAnCuoiKi
             listTheXe.Add(n);
             return n;
         }
-        public void themXe(XeCo xe, Nguoi nguoi)
+        public void themXe(XeCo xe, NguoiGuiXe nguoi)
         {
             int hangXe = (int)xe.getTypeOfVehicle();
             for (int i = 0; i < sucChua; i++)
@@ -113,9 +113,9 @@ namespace DoAnCuoiKi
         //M.Đăng
         public string thongTinXe(int maTheXe, DateTime thoiGianXeVao, DateTime thoiGianXacNhan, string anhXeVao, string anhNguoiVao, string anhXeRa, string anhNguoiRa)
         {
-            return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {anhXeVao}\nAnh xe ra: {anhXeRa} \nAnh nguoi vao:  {anhNguoiVao} \nAnh nguoi ra: {anhNguoiRa}";
+            return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {anhXeVao}\nAnh xe ra: {anhXeRa} \nAnh NguoiGuiXe vao:  {anhNguoiVao} \nAnh NguoiGuiXe ra: {anhNguoiRa}";
         }
-        public string xuLyLayXe(XeCo xe, Nguoi nguoilayxe, tinhTienGXe cachTinhTien)
+        public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, tinhTienGXe cachTinhTien)
         {
             int maTheXe = nguoilayxe.theXe;
             if (thucHienXacNhan(maTheXe, xe, nguoilayxe) == true)
@@ -133,9 +133,9 @@ namespace DoAnCuoiKi
                 return $"So tien phai tra la: {sotien} \n";
             }
             else
-                return "Loi xac thuc.\n";
+                return $"Canh bao: Anh khong khop";
         }
-        private bool thucHienXacNhan(int maTheXe, XeCo xe, Nguoi nguoilayxe)
+        private bool thucHienXacNhan(int maTheXe, XeCo xe, NguoiGuiXe nguoilayxe)
         {
             string anhXeVao, anhNguoiVao, anhXeRa, anhNguoiRa;
             anhNguoiVao = this.TTXeTrongBai[maTheXe].anhNguoi;

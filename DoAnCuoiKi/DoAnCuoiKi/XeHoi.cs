@@ -35,7 +35,7 @@ namespace DoAnCuoiKi
             this.hangXe = xe.hangXe;
             this.ngayGio = xe.ngayGio;
             this.loaiXe = xe.loaiXe;
-            this.BienSoXe = BienSoXe;
+            this.BienSoXe = xe.BienSoXe;
             this.soCuaXe = xe.soCuaXe;
             this.mauXe = xe.mauXe;
         }
@@ -44,6 +44,7 @@ namespace DoAnCuoiKi
         {
             return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nSo cua xe: {this.soCuaXe} \nMau xe: {this.mauXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
+        //Minh Đăng
         public static string deMay()
         {
             return "De may";

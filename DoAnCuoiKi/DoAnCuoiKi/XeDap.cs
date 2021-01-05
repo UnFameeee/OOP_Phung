@@ -29,6 +29,7 @@ namespace DoAnCuoiKi
         {
             return $"\nMa xe: {this.maXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
         }
+        //Minh Đăng
         public static string gatChanTrong()
         {
             return "Gat chan trong";

@@ -40,7 +40,7 @@ namespace DoAnCuoiKi
         }
         //Phương thức ảo
         public abstract string anhXe();
-        //Delegate (Minh Đăng)
+        //Delegate khởi động xe (Minh Đăng)
         public delegate string cachKhoiDong();
         public string khoiDongXe(cachKhoiDong khoiDong)
         {
