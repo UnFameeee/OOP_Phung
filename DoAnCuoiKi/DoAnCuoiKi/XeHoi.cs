@@ -22,7 +22,7 @@ namespace DoAnCuoiKi
             this.soCuaXe = -1;
             this.loaiXe = Scanner.xeHoi;
         }
-        public XeHoi(string maXe, string bienSoXe, string hangXe, int soCuaXe, string mauXe) : base(maXe, hangXe)
+        public XeHoi(string bienSoXe, string hangXe, int soCuaXe, string mauXe) : base(hangXe)
         {
             this.BienSoXe = BienSoXe;
             this.soCuaXe = soCuaXe;
@@ -42,7 +42,7 @@ namespace DoAnCuoiKi
 
         public override string anhXe()
         {
-            return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nSo cua xe: {this.soCuaXe} \nMau xe: {this.mauXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}";
+            return $"\nMa xe: {this.maXe} \nBien so xe: {this.BienSoXe} \nSo cua xe: {this.soCuaXe} \nMau xe: {this.mauXe} \nLoai xe: {this.loaiXe} \nHang xe: {this.hangXe} \nThoi gian gui xe: {this.ngayGio}\n";
         }
         //Minh Đăng
         public static string deMay()
