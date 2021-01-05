@@ -12,7 +12,6 @@ namespace DoAnCuoiKi
         TruongNhom,
         QuanLy
     }
-
     public class NhanVien : Nguoi
     {
         public string theNhanVien { get; }
