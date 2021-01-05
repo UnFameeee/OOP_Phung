@@ -71,6 +71,7 @@ namespace DoAnCuoiKi
             NhanVien nam = new NhanVien();
             NhanVien.hanhDongNV hd = new NhanVien.hanhDongNV(NhanVien.moCua);
             Console.WriteLine(nam.hanhDong(hd));
+            //test
 
         }
         private static object Quanly1_eventUpdateDriver(params object[] thamso)
