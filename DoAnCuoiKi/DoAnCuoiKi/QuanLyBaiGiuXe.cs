@@ -103,11 +103,11 @@ namespace DoAnCuoiKi
         }
         public string statusXeMay()
         {
-            return $"Xe may: {sucChua - slXe[2]} slot"; ;
+            return $"Xe may: {sucChua - slXe[2]} slot";
         }
         public string statusXeHoi()
         {
-            return $"Xe hoi: {sucChua - slXe[3]} slot"; ;
+            return $"Xe hoi: {sucChua - slXe[3]} slot";
         }
 
         //M.Đăng
@@ -170,15 +170,16 @@ namespace DoAnCuoiKi
         {
             return tinhTien(sogio, loaixe);
         }
-        public int tinhTienTheoGio(int sogio, Scanner loaixe)
+        public static int tinhTienTheoGio(int sogio, Scanner loaixe)
         {
             //Xe đạp: 2000/5h
             //Xe đạp điện: 3000/5h
             //Xe máy: 4000/5h
             //Xe hơi: 10000/5h
-            return loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
+            return loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) 
+                             + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
-        public int tinhTienTheoNgay(int sogio, Scanner loaixe)
+        public static int tinhTienTheoNgay(int sogio, Scanner loaixe)
         {
             //Theo ngày + Theo giờ (<24)
             //Theo ngày:
@@ -188,9 +189,11 @@ namespace DoAnCuoiKi
             //Xe hơi: 40000/ngày
             int songay = sogio / 24;
             sogio = sogio % 24;
-            int tienngay = 0;
-            tienngay = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) * 4 * songay : 10000 * 4 * songay;
-            int tiengio = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
+            int tienngay;
+            tienngay = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) * 4 * songay 
+                                                 : 10000 * 4 * songay;
+            int tiengio = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) 
+                          + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
             return tienngay + tiengio;
         }
         public int tinhThoiGianGuiXe(DateTime timeGuiXe, DateTime timeNow)
@@ -239,9 +242,26 @@ namespace DoAnCuoiKi
                 return "Thanh toan bang hinh thuc ZaloPay";
             return "Thanh toan bang hinh thuc tien mat";
         }
-        public delegate ThanhToan HinhThucThanhToan();
-        //Tổng kết số tiền thu được
         
+        public static string denTinHieuXanh()
+        {
+            return "Xanh";
+        }
+        public static string denTinHieuDo()
+        {
+            return "Do";
+        }
+        public delegate string DenTinHieu();
+        public string thanhChanBarrier(DenTinHieu denTinHieu)
+        {
+            string kq = denTinHieu();
+            if (kq == "Xanh")
+                return "Mo thanh chan";
+            return "Dong thanh chan";
+        }
+        
+        //Tổng kết số tiền thu được
+        public delegate ThanhToan HinhThucThanhToan();
         public string thanhToan(HinhThucThanhToan hinhThucThanhToan,int tienNguoiGuiXe, int tongTienCanPhaiTra)
         {
             ThanhToan kq = hinhThucThanhToan();
@@ -261,7 +281,10 @@ namespace DoAnCuoiKi
             return $"Thanh toan {kq} thanh cong!";
         }
         //Status số tiền hiện đang có
-
+        public string statusSoTIenHienDangCo()
+        {
+            return $"Tong so tien hien dang co la: {tongTien}";
+        }
         //event sửa chữa và bảo trì bãi xe
         public delegate object SCvaBT(params object[] thamso);
         public event SCvaBT eventSCvaBT;
