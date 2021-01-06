@@ -46,7 +46,7 @@ namespace DoAnCuoiKi
             listTheXe.Add(n);
             return n;
         }
-        public void themXe(XeCo xe, NguoiGuiXe nguoi)
+        public string themXe(XeCo xe, NguoiGuiXe nguoi)
         {
             int hangXe = (int)xe.getTypeOfVehicle();
             for (int i = 0; i < sucChua; i++)
@@ -72,6 +72,7 @@ namespace DoAnCuoiKi
                     break;
                 }
             }
+            return $"Da them xe {xe.getTypeOfVehicle()}";
         }
         public int tongSoXe()
         {
@@ -142,7 +143,7 @@ namespace DoAnCuoiKi
                 //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
                 this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
                 //Lấy tiền gửi xe
-                return thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra);
+                return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nDa lay {xe.getTypeOfVehicle()} thanh cong\n";
             }
             else
                 return "Canh bao: Anh khong khop";
