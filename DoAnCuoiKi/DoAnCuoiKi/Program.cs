@@ -85,7 +85,11 @@ namespace DoAnCuoiKi
             NhanVien NV1 = new NhanVien();
             /*Nhân viên mở cửa bãi xe*/
             NhanVien.hanhDongNV hdong1 = new NhanVien.hanhDongNV(NhanVien.moCua);
+<<<<<<< HEAD
+            Console.WriteLine(NV1.hanhDong(hdong1));
+=======
             Console.WriteLine(NV1.hanhDongCuaNV(hdong1));
+>>>>>>> f341ce4357a6a46d73f2da5b0531c52663a2c028
             //Tạo đèn tín hiệu
             QuanLyBaiGiuXe.DenTinHieu denTinHieuXanh = new QuanLyBaiGiuXe.DenTinHieu(QuanLyBaiGiuXe.denTinHieuXanh);
             QuanLyBaiGiuXe.DenTinHieu denTinHieuDo = new QuanLyBaiGiuXe.DenTinHieu(QuanLyBaiGiuXe.denTinHieuDo);
@@ -123,7 +127,11 @@ namespace DoAnCuoiKi
 
             /*Nhân viên mở cửa bãi xe*/
             NhanVien.hanhDongNV hdong2 = new NhanVien.hanhDongNV(NhanVien.dongCua);
+<<<<<<< HEAD
+            Console.WriteLine(NV1.hanhDong(hdong2));
+=======
             Console.WriteLine(NV1.hanhDongCuaNV(hdong2));
+>>>>>>> f341ce4357a6a46d73f2da5b0531c52663a2c028
             //dòng nào đấy(nó xuấtra dòng nào) là sao? ko cái 
             /*Event sửa chữa và bảo trì bãi xe*/
             quanly2.eventSCvaBT += Quanly2_eventSCvaBT;

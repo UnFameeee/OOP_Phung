@@ -103,11 +103,11 @@ namespace DoAnCuoiKi
         }
         public string statusXeMay()
         {
-            return $"Xe may: {sucChua - slXe[2]} slot";
+            return $"Xe may: {sucChua - slXe[2]} slot"; ;
         }
         public string statusXeHoi()
         {
-            return $"Xe hoi: {sucChua - slXe[3]} slot";
+            return $"Xe hoi: {sucChua - slXe[3]} slot"; ;
         }
 
         //M.Đăng
@@ -124,7 +124,7 @@ namespace DoAnCuoiKi
         }
         public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien)
         {
-            int maTheXe = nguoilayxe.theXe;
+            int maTheXe = nguoilayxe.theXe;     //m chạy đi F11 vừa đủ? ủa à kom chạy nah6m2 rồi tiếp đi coi tại sao trên đúng
             DateTime thoiGianXacNhan = DateTime.Now;
             Scanner loaiXe = xe.getTypeOfVehicle();
             int soTienCanPhaiTra = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), loaiXe);
@@ -141,7 +141,7 @@ namespace DoAnCuoiKi
                 xoaThongTinXe(maTheXe, (int)loaiXe);
                 //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
                 this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
-                //Lấy tiền gửi xe
+                //Lấy tiền gửi xe //
                 return thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra);
             }
             else
@@ -170,16 +170,15 @@ namespace DoAnCuoiKi
         {
             return tinhTien(sogio, loaixe);
         }
-        public static int tinhTienTheoGio(int sogio, Scanner loaixe)
+        public int tinhTienTheoGio(int sogio, Scanner loaixe)
         {
             //Xe đạp: 2000/5h
             //Xe đạp điện: 3000/5h
             //Xe máy: 4000/5h
             //Xe hơi: 10000/5h
-            return loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) 
-                             + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
+            return loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
         }
-        public static int tinhTienTheoNgay(int sogio, Scanner loaixe)
+        public int tinhTienTheoNgay(int sogio, Scanner loaixe)
         {
             //Theo ngày + Theo giờ (<24)
             //Theo ngày:
@@ -189,11 +188,9 @@ namespace DoAnCuoiKi
             //Xe hơi: 40000/ngày
             int songay = sogio / 24;
             sogio = sogio % 24;
-            int tienngay;
-            tienngay = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) * 4 * songay 
-                                                 : 10000 * 4 * songay;
-            int tiengio = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) 
-                          + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
+            int tienngay = 0;
+            tienngay = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) * 4 * songay : 10000 * 4 * songay;
+            int tiengio = loaixe != Scanner.xeHoi ? (2000 + (int)loaixe * 1000) + (2000 + (int)loaixe * 1000) * (sogio / 5) : 10000 + 10000 * (sogio / 5);
             return tienngay + tiengio;
         }
         public int tinhThoiGianGuiXe(DateTime timeGuiXe, DateTime timeNow)
@@ -242,7 +239,28 @@ namespace DoAnCuoiKi
                 return "Thanh toan bang hinh thuc ZaloPay";
             return "Thanh toan bang hinh thuc tien mat";
         }
-        
+        public delegate ThanhToan HinhThucThanhToan();
+        //Tổng kết số tiền thu được
+
+        public string thanhToan(HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, int tongTienCanPhaiTra)
+        {
+            ThanhToan kq = hinhThucThanhToan();
+            if (tienNguoiGuiXe == tongTienCanPhaiTra)
+                tongTien += tienNguoiGuiXe;
+            else
+                if (tienNguoiGuiXe < tongTienCanPhaiTra)
+                return "Thanh toan khong du!";
+            else
+                if (tienNguoiGuiXe > tongTienCanPhaiTra)
+                if (kq == ThanhToan.TienMat)
+                {
+                    tienNguoiGuiXe -= tongTienCanPhaiTra;
+                    tongTien += tongTienCanPhaiTra;
+                    return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
+                }
+            return $"Thanh toan {kq} thanh cong!";
+        }
+        //Thanh chắn Barrier và đèn tín hiệu
         public static string denTinHieuXanh()
         {
             return "Xanh";
@@ -251,7 +269,6 @@ namespace DoAnCuoiKi
         {
             return "Do";
         }
-        public delegate string DenTinHieu();
         public string thanhChanBarrier(DenTinHieu denTinHieu)
         {
             string kq = denTinHieu();
@@ -259,27 +276,7 @@ namespace DoAnCuoiKi
                 return "Mo thanh chan";
             return "Dong thanh chan";
         }
-        
-        //Tổng kết số tiền thu được
-        public delegate ThanhToan HinhThucThanhToan();
-        public string thanhToan(HinhThucThanhToan hinhThucThanhToan,int tienNguoiGuiXe, int tongTienCanPhaiTra)
-        {
-            ThanhToan kq = hinhThucThanhToan();
-            if (tienNguoiGuiXe == tongTienCanPhaiTra)
-                tongTien += tienNguoiGuiXe;
-            else 
-                if (tienNguoiGuiXe < tongTienCanPhaiTra)
-                        return "Thanh toan khong du!";
-                else 
-                    if (tienNguoiGuiXe > tongTienCanPhaiTra)
-                        if (kq == ThanhToan.TienMat)
-                        {
-                            tienNguoiGuiXe -= tongTienCanPhaiTra;
-                            tongTien += tongTienCanPhaiTra;
-                            return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
-                        }
-            return $"Thanh toan {kq} thanh cong!";
-        }
+        public delegate string DenTinHieu();
         //Status số tiền hiện đang có
         public string statusSoTIenHienDangCo()
         {
