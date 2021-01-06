@@ -143,6 +143,8 @@ namespace DoAnCuoiKi
                 //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
                 this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
                 //Lấy tiền gửi xe
+                if (tienNguoiGuiXe < soTienCanPhaiTra)
+                    return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nLay {xe.getTypeOfVehicle()} khong thanh cong\n";
                 return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nDa lay {xe.getTypeOfVehicle()} thanh cong\n";
             }
             else
