@@ -10,7 +10,7 @@ namespace DoAnCuoiKi
     {
         //Khai báo thuộc tính
         //Interface
-        public string BienSoXe { set; get; }
+        public string BienSoXe { get; }
         //class XeDapDien
         private string binhDien;
 
@@ -43,7 +43,7 @@ namespace DoAnCuoiKi
         //Minh Đăng
         public static string deMay()
         {
-            return "De may";
+            return "De may\n";
         }
     }
 }

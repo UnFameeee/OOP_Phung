@@ -84,8 +84,8 @@ namespace DoAnCuoiKi
             /*Khởi tạo nhân viên*/
             NhanVien NV1 = new NhanVien();
             /*Nhân viên mở cửa bãi xe*/
-            NhanVien.hanhDongNV hdong = new NhanVien.hanhDongNV(NhanVien.moCua);
-            Console.WriteLine(NV1.hanhDong(hdong));
+            NhanVien.hanhDongNV hdong1 = new NhanVien.hanhDongNV(NhanVien.moCua);
+            Console.WriteLine(NV1.hanhDong(hdong1));
             /*Gửi xe vào bãi*/
             quanly2.themXe(XeDap_CuaA, NguyenVanA);
             /*In thông tin đã chụp lại của XeDap_CuaA đã gửi vào bãi*/
@@ -108,6 +108,10 @@ namespace DoAnCuoiKi
             QuanLyBaiGiuXe.delegateStatusLoaiXe sttxe = new QuanLyBaiGiuXe.delegateStatusLoaiXe(quanly2.statusXeDap);
             Console.WriteLine(quanly2.statusLoaiXe(sttxe));
 
+            /*Nhân viên mở cửa bãi xe*/
+            NhanVien.hanhDongNV hdong2 = new NhanVien.hanhDongNV(NhanVien.dongCua);
+            Console.WriteLine(NV1.hanhDong(hdong2));
+
             /*Event sửa chữa và bảo trì bãi xe*/
             quanly2.eventSCvaBT += Quanly2_eventSCvaBT;
             Console.WriteLine((string)quanly2.thucThiSCBT());
@@ -116,11 +120,8 @@ namespace DoAnCuoiKi
             quanly2.eventUpdateDriver += Quanly2_eventUpdateDriver;
             Console.WriteLine((string)quanly2.thucThiUpdate());
             /*Event mở rộng bãi giữ xe*/
-            //quanly2.eventMoRong += Quanly2_eventMoRongBaiGiuXe;
-            //Console.WriteLine((string)quanly2.thucThiMoRongBaiGiuXe());
-
-
-
+            quanly2.eventMoRong += Quanly2_eventMoRongBaiGiuXe;
+            Console.WriteLine((string)quanly2.thucThiMoRongBaiGiuXe());
 
         }
         private static object Quanly2_eventUpdateDriver(params object[] thamso)

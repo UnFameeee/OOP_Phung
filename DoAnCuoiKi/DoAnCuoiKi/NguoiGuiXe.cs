@@ -29,29 +29,33 @@ namespace DoAnCuoiKi
             return $"Gioi tinh:  {this.gioiTinh}\nKhuon mat:  {this.khuonMat} \nThe hinh: {this.dangNguoi}";
         }
         //Tiến
-        public string tatDenXe()
+        public static string tatDenXe()
         {
-            return "Tat den xe";
+            return "Tat den xe\n";
         }
-        public string gatChanChong()
+        public static string thaoKhauTrang()
         {
-            return "Gat chan chong";
+            return "Thao khau trang\n";
         }
-        public string layThe()
+        public static string layThe()
         {
-            return "Lay the";
+            return "Lay the\n";
         }
-        public string duaThe()
+        public static string duaThe()
         {
-            return "Dua The";
+            return "Dua The\n";
         }
-        public string duaTien()
+        public static string duaTien()
         {
-            return "Dua Tien";
+            return "Dua Tien\n";
         }
         public override string hanhDong(hanhDongNV hanhDongCuaKhach)
         {
             return hanhDongCuaKhach();
+        }
+        public int themTienKhiThieu(int tienNguoiGuiXe, int tienThem)
+        {
+            return tienNguoiGuiXe + tienThem;
         }
     }
 }

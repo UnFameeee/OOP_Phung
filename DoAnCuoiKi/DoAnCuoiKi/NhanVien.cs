@@ -45,15 +45,15 @@ namespace DoAnCuoiKi
         }
         public static string quetDon()
         {
-            return "Quet don, ve sinh bai giu xe";
+            return "Quet don, ve sinh bai giu xe\n";
         }
         public static string kiemTraBaiXe()
         {
-            return "Tuan tra bai giu xe";
+            return "Tuan tra bai giu xe\n";
         }
         public static string trucBan()
         {
-            return "Tien hanh soat the xe ra va cap the cho xe vao";
+            return "Tien hanh soat the xe ra va cap the cho xe vao\n";
         }
         public static string moCua()
         {
@@ -61,11 +61,11 @@ namespace DoAnCuoiKi
         }
         public static string dongCua()
         {
-            return "Dong cua bai giu xe";
+            return "Dong cua bai giu xe\n";
         }
         public static string nghiNgoi()
         {
-            return "Nghi ngoi";
+            return "Nghi ngoi\n";
         }
     }
 }
