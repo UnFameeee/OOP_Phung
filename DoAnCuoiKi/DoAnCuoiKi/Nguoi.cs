@@ -34,8 +34,7 @@ namespace DoAnCuoiKi
             this.gioiTinh = x.gioiTinh;
             this.dangNguoi = x.dangNguoi;
         }
-        public delegate string hanhDongNV();
+
         public abstract string anhNguoi();
-        public abstract string hanhDong(hanhDongNV hanhdong);
     }
 }

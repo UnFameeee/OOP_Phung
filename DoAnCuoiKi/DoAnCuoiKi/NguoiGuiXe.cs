@@ -15,7 +15,11 @@ namespace DoAnCuoiKi
         }
         public NguoiGuiXe(string khuonMat, GioiTinh gioiTinh, string dangNguoi) : base(khuonMat, gioiTinh, dangNguoi)
         {
+<<<<<<< HEAD
             this.theXe = -1; 
+=======
+            this.theXe = -1;
+>>>>>>> f341ce4357a6a46d73f2da5b0531c52663a2c028
         }
         public NguoiGuiXe(NguoiGuiXe x)
         {
@@ -49,13 +53,10 @@ namespace DoAnCuoiKi
         {
             return "Dua Tien\n";
         }
-        public override string hanhDong(hanhDongNV hanhDongCuaKhach)
+        public delegate string hanhDongKhach();
+        public string hanhDongCuaKhach(hanhDongKhach hanhDongCuaKhach)
         {
             return hanhDongCuaKhach();
-        }
-        public int themTienKhiThieu(int tienNguoiGuiXe, int tienThem)
-        {
-            return tienNguoiGuiXe + tienThem;
         }
     }
 }

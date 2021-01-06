@@ -129,7 +129,7 @@ namespace DoAnCuoiKi
             Scanner loaiXe = xe.getTypeOfVehicle();
             int soTienCanPhaiTra = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), loaiXe);
             if (maTheXe == -1)                          //Người lấy xe bị mất thẻ xe
-            {                         
+            {
                 soTienCanPhaiTra += 50000;
                 maTheXe = xuLyTheXe(xe, nguoilayxe);
             }
@@ -249,15 +249,15 @@ namespace DoAnCuoiKi
                 tongTien += tienNguoiGuiXe;
             else
                 if (tienNguoiGuiXe < tongTienCanPhaiTra)
-                    return "Thanh toan khong du!";              
+                return "Thanh toan khong du!";
             else
                 if (tienNguoiGuiXe > tongTienCanPhaiTra)
-                    if (kq == ThanhToan.TienMat)
-                    {
+                if (kq == ThanhToan.TienMat)
+                {
                     tienNguoiGuiXe -= tongTienCanPhaiTra;
-                    tongTien += tongTienCanPhaiTra; 
+                    tongTien += tongTienCanPhaiTra;
                     return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
-                    }
+                }
             return $"Thanh toan {kq} thanh cong!";
         }
         //Thanh chắn Barrier và đèn tín hiệu

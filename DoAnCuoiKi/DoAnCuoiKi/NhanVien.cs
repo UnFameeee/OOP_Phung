@@ -35,13 +35,15 @@ namespace DoAnCuoiKi
             this.dangNguoi = x.dangNguoi;
         }
 
-        public override string hanhDong(hanhDongNV hanhDongCuaNV)
-        {
-            return hanhDongCuaNV();
-        }
+        
         public override string anhNguoi()
         {
             return $"The deo: {this.theNhanVien}\nGioi tinh:  {this.gioiTinh}\nKhuon mat:  {this.khuonMat} \nThe hinh: {this.dangNguoi}";
+        }
+        public delegate string hanhDongNV();
+        public string hanhDongCuaNV(hanhDongNV hanhDongCuaNV)
+        {
+            return hanhDongCuaNV();
         }
         public static string quetDon()
         {
@@ -57,7 +59,7 @@ namespace DoAnCuoiKi
         }
         public static string moCua()
         {
-            return "Mo cua bai giu xe";
+            return "Mo cua bai giu xe\n";
         }
         public static string dongCua()
         {
