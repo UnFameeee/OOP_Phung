@@ -31,6 +31,14 @@ namespace DoAnCuoiKi
         {
             this.tongTien = 500000;
         }
+        public QuanLyBaiGiuXe(QuanLyBaiGiuXe qly)
+        {
+            this.tongTien = qly.tongTien;
+            this.slXe = qly.slXe;
+            this.slotXe = qly.slotXe;
+            this.danhSachTTXeDaLay = qly.danhSachTTXeDaLay;
+            this.TTXeTrongBai = qly.TTXeTrongBai;
+        }
         //Thắng
         List<int> listTheXe = new List<int>(1000000) { 0 };
         public int phatTheXe()
