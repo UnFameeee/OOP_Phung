@@ -101,7 +101,7 @@ namespace DoAnCuoiKi
             /*Thanh toán*/
 
             /*Lấy xe ra*/
-            Console.WriteLine(quanly2.xuLyLayXe(XeDap_CuaA, NguyenVanA, cachTinhTien));
+            //Console.WriteLine(quanly2.xuLyLayXe(XeDap_CuaA, NguyenVanA, cachTinhTien));
             //Console.WriteLine(quanly2.xuLyLayXe(XeDap1, A, cachTinhTien)); --> phải return không lấy được
 
             /*In lại thông tin của bãi xe đạp*/
@@ -109,40 +109,32 @@ namespace DoAnCuoiKi
             Console.WriteLine(quanly2.statusLoaiXe(sttxe));
 
             /*Event sửa chữa và bảo trì bãi xe*/
-            quanly2.eventSCvaBT += Quanly1_eventSCvaBT;
+            quanly2.eventSCvaBT += Quanly2_eventSCvaBT;
             Console.WriteLine((string)quanly2.thucThiSCBT());
 
             /*Event update phần mềm của chương trình quản lý*/
-            quanly2.eventUpdateDriver += Quanly1_eventUpdateDriver;
+            quanly2.eventUpdateDriver += Quanly2_eventUpdateDriver;
             Console.WriteLine((string)quanly2.thucThiUpdate());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            /*Event mở rộng bãi giữ xe*/
+            //quanly2.eventMoRong += Quanly2_eventMoRongBaiGiuXe;
+            //Console.WriteLine((string)quanly2.thucThiMoRongBaiGiuXe());
 
 
 
 
         }
-        private static object Quanly1_eventUpdateDriver(params object[] thamso)
+        private static object Quanly2_eventUpdateDriver(params object[] thamso)
         {
             return "Update Driver!!!";
         }
 
-        private static object Quanly1_eventSCvaBT(params object[] thamso)
+        private static object Quanly2_eventSCvaBT(params object[] thamso)
         {
             return "Bai xe dang trong tinh trang bao tri va sua chua";
+        }
+        private static object Quanly2_eventMoRongBaiGiuXe(params object[] thamso)
+        {
+            return "Mo rong bai giu xe";
         }
         //Delegate tính tiền lúc xe đi ra (1)
         //Delegate này sẽ chỉ các cách thức thanh toán: momo, viettel pay, tienmat, quetthe, airpay, zalopay
