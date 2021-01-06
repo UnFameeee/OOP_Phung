@@ -241,27 +241,47 @@ namespace DoAnCuoiKi
         }
         public delegate ThanhToan HinhThucThanhToan();
         //Tổng kết số tiền thu được
-        
-        public string thanhToan(HinhThucThanhToan hinhThucThanhToan,int tienNguoiGuiXe, int tongTienCanPhaiTra)
+
+        public string thanhToan(HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, int tongTienCanPhaiTra)
         {
             ThanhToan kq = hinhThucThanhToan();
             if (tienNguoiGuiXe == tongTienCanPhaiTra)
                 tongTien += tienNguoiGuiXe;
-            else 
+            else
                 if (tienNguoiGuiXe < tongTienCanPhaiTra)
-                        return "Thanh toan khong du!";
-                else 
+                return "Thanh toan khong du!";
+            else
                     if (tienNguoiGuiXe > tongTienCanPhaiTra)
-                        if (kq == ThanhToan.TienMat)
-                        {
-                            tienNguoiGuiXe -= tongTienCanPhaiTra;
-                            tongTien += tongTienCanPhaiTra;
-                            return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
-                        }
+                if (kq == ThanhToan.TienMat)
+                {
+                    tienNguoiGuiXe -= tongTienCanPhaiTra;
+                    tongTien += tongTienCanPhaiTra;
+                    return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
+                }
             return $"Thanh toan {kq} thanh cong!";
         }
+        //Thanh chắn Barrier và đèn tín hiệu
+        public static string denTinHieuXanh()
+        {
+            return "Xanh";
+        }
+        public static string denTinHieuDo()
+        {
+            return "Do";
+        }
+        public string thanhChanBarrier(DenTinHieu denTinHieu)
+        {
+            string kq = denTinHieu();
+            if (kq == "Xanh")
+                return "Mo thanh chan";
+            return "Dong thanh chan";
+        }
+        public delegate string DenTinHieu();
         //Status số tiền hiện đang có
-
+        public string statusSoTIenHienDangCo()
+        {
+            return $"Tong so tien hien dang co la: {tongTien}";
+        }
         //event sửa chữa và bảo trì bãi xe
         public delegate object SCvaBT(params object[] thamso);
         public event SCvaBT eventSCvaBT;
