@@ -90,11 +90,12 @@ namespace DoAnCuoiKi
             QuanLyBaiGiuXe.DenTinHieu denTinHieuXanh = new QuanLyBaiGiuXe.DenTinHieu(QuanLyBaiGiuXe.denTinHieuXanh);
             QuanLyBaiGiuXe.DenTinHieu denTinHieuDo = new QuanLyBaiGiuXe.DenTinHieu(QuanLyBaiGiuXe.denTinHieuDo);
             //Mở thanh chắn
-            quanly2.thanhChanBarrier(denTinHieuXanh);
+            Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuXanh));
             /*Gửi xe vào bãi*/
             quanly2.themXe(XeDap_CuaA, NguyenVanA);
+            quanly2.themXe(XeMay_CuaB, NguyenVanB);
             //Đóng thanh chắn 
-            quanly2.thanhChanBarrier(denTinHieuDo);
+            Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuDo));
             /*In thông tin đã chụp lại của XeDap_CuaA đã gửi vào bãi*/
             Console.WriteLine(XeDap_CuaA.anhXe() + "\n" + NguyenVanA.anhNguoi());
             /*In thông tin đã chụp lại của XeMay_CuaB và NguyenVanB đã gửi vào bãi*/
@@ -107,13 +108,14 @@ namespace DoAnCuoiKi
             QuanLyBaiGiuXe.tinhTienGXe cachTinhTien = new QuanLyBaiGiuXe.tinhTienGXe(quanly2.tinhTienTheoGio);
             /*Thanh toán*/
             //Mở thanh chắn
-            quanly2.thanhChanBarrier(denTinHieuXanh);
+            Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuXanh));
             /*Lấy xe ra*/
             QuanLyBaiGiuXe.HinhThucThanhToan hinhThucThanhToan = new QuanLyBaiGiuXe.HinhThucThanhToan(QuanLyBaiGiuXe.quetThe);
             Console.WriteLine(quanly2.xuLyLayXe(XeDap_CuaA, NguyenVanA, hinhThucThanhToan, 5000, cachTinhTien));
+            //Nãy là ko có xe trong bãi luôn cái này này
             Console.WriteLine(quanly2.xuLyLayXe(XeMay_CuaB, NguyenVanB, hinhThucThanhToan, 2000, cachTinhTien)); //--> phải return không lấy được
             //Đóng thanh chắn 
-            quanly2.thanhChanBarrier(denTinHieuDo);
+            Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuDo));
 
             /*In lại thông tin của bãi xe đạp*/
             QuanLyBaiGiuXe.delegateStatusLoaiXe sttxe = new QuanLyBaiGiuXe.delegateStatusLoaiXe(quanly2.statusXeDap);
@@ -122,7 +124,7 @@ namespace DoAnCuoiKi
             /*Nhân viên mở cửa bãi xe*/
             NhanVien.hanhDongNV hdong2 = new NhanVien.hanhDongNV(NhanVien.dongCua);
             Console.WriteLine(NV1.hanhDong(hdong2));
-
+            //dòng nào đấy(nó xuấtra dòng nào) là sao? ko cái 
             /*Event sửa chữa và bảo trì bãi xe*/
             quanly2.eventSCvaBT += Quanly2_eventSCvaBT;
             Console.WriteLine((string)quanly2.thucThiSCBT());

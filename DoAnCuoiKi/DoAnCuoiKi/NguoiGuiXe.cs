@@ -11,11 +11,11 @@ namespace DoAnCuoiKi
         public int theXe { set; get; }
         public NguoiGuiXe() : base()
         {
-            this.theXe = -1;
+            this.theXe = -1;   
         }
         public NguoiGuiXe(string khuonMat, GioiTinh gioiTinh, string dangNguoi) : base(khuonMat, gioiTinh, dangNguoi)
         {
-
+            this.theXe = -1; 
         }
         public NguoiGuiXe(NguoiGuiXe x)
         {

@@ -124,12 +124,12 @@ namespace DoAnCuoiKi
         }
         public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien)
         {
-            int maTheXe = nguoilayxe.theXe;
+            int maTheXe = nguoilayxe.theXe;     //m chạy đi F11 vừa đủ? ủa à kom chạy nah6m2 rồi tiếp đi coi tại sao trên đúng
             DateTime thoiGianXacNhan = DateTime.Now;
             Scanner loaiXe = xe.getTypeOfVehicle();
             int soTienCanPhaiTra = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), loaiXe);
             if (maTheXe == -1)                          //Người lấy xe bị mất thẻ xe
-            {
+            {                         
                 soTienCanPhaiTra += 50000;
                 maTheXe = xuLyTheXe(xe, nguoilayxe);
             }
@@ -141,7 +141,7 @@ namespace DoAnCuoiKi
                 xoaThongTinXe(maTheXe, (int)loaiXe);
                 //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
                 this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
-                //Lấy tiền gửi xe
+                //Lấy tiền gửi xe //
                 return thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra);
             }
             else
@@ -249,15 +249,15 @@ namespace DoAnCuoiKi
                 tongTien += tienNguoiGuiXe;
             else
                 if (tienNguoiGuiXe < tongTienCanPhaiTra)
-                return "Thanh toan khong du!";
+                    return "Thanh toan khong du!";              
             else
-                    if (tienNguoiGuiXe > tongTienCanPhaiTra)
-                if (kq == ThanhToan.TienMat)
-                {
+                if (tienNguoiGuiXe > tongTienCanPhaiTra)
+                    if (kq == ThanhToan.TienMat)
+                    {
                     tienNguoiGuiXe -= tongTienCanPhaiTra;
-                    tongTien += tongTienCanPhaiTra;
+                    tongTien += tongTienCanPhaiTra; 
                     return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
-                }
+                    }
             return $"Thanh toan {kq} thanh cong!";
         }
         //Thanh chắn Barrier và đèn tín hiệu
