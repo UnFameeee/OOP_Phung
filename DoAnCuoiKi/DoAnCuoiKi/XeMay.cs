@@ -10,7 +10,7 @@ namespace DoAnCuoiKi
     {
         //Khai báo thuộc tính
         //Interface
-        public string BienSoXe { set; get; }
+        public string BienSoXe { get; }
         //class XeMay
         private string phanKhoi;
         //Hàm khởi tạo
@@ -44,11 +44,11 @@ namespace DoAnCuoiKi
         //Minh Đăng
         public static string deMay()
         {
-            return "De may";
+            return "De may\n";
         }
         public static string dapBanDap()
         {
-            return "Dap ban dap";
+            return "Dap ban dap\n";
         }
     }
 }

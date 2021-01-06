@@ -115,37 +115,34 @@ namespace DoAnCuoiKi
         {
             return $"Thoi gian xe vao: {thoiGianXeVao}\nThoi gian xac nhan lay xe: {thoiGianXacNhan}\nAnh xe vao: {anhXeVao}\nAnh xe ra: {anhXeRa} \nAnh NguoiGuiXe vao:  {anhNguoiVao} \nAnh NguoiGuiXe ra: {anhNguoiRa}";
         }
-        public string xuLyTheXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien, int sogio, Scanner loaixe)
+        public int xuLyTheXe(XeCo xe, NguoiGuiXe nguoilayxe)
         {
-            foreach (ThongTinXeTrongBai TimKiem in this.TTXeTrongBai)
-            {
-                if (xe.maXe == TimKiem.maXe && nguoilayxe.anhNguoi() == TimKiem.anhNguoi && xe.anhXe() == TimKiem.anhXe)
-                    return thanhToan(hinhThucThanhToan, tienNguoiGuiXe, cachTinhTien, sogio, loaixe);
-            }
-            return "Canh bao: Anh khong khop";
+            foreach (KeyValuePair<int, ThongTinXeTrongBai> TimKiem in this.TTXeTrongBai)
+                if (xe.maXe == TimKiem.Value.maXe && nguoilayxe.anhNguoi() == TimKiem.Value.anhNguoi && xe.anhXe() == TimKiem.Value.anhXe)
+                    return TimKiem.Key;
+            return -1;
         }
-        public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien, int sogio, Scanner loaixe)
+        public string xuLyLayXe(XeCo xe, NguoiGuiXe nguoilayxe, HinhThucThanhToan hinhThucThanhToan, int tienNguoiGuiXe, tinhTienGXe cachTinhTien)
         {
             int maTheXe = nguoilayxe.theXe;
-            if (maTheXe == null)
+            DateTime thoiGianXacNhan = DateTime.Now;
+            Scanner loaiXe = xe.getTypeOfVehicle();
+            int soTienCanPhaiTra = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), loaiXe);
+            if (maTheXe == -1)                          //Người lấy xe bị mất thẻ xe
             {
-                thanhToan(hinhThucThanhToan, tienNguoiGuiXe, cachTinhTien, sogio, loaixe);
-                tongTien += 50 + tongTien;
-                xuLyTheXe(xe, nguoilayxe, hinhThucThanhToan, tienNguoiGuiXe, cachTinhTien, sogio, loaixe);
+                soTienCanPhaiTra += 50000;
+                maTheXe = xuLyTheXe(xe, nguoilayxe);
             }
             if (thucHienXacNhan(maTheXe, xe, nguoilayxe) == true)
             {
-                DateTime thoiGianXacNhan = DateTime.Now;
-                int loaiXe = (int)xe.getTypeOfVehicle();
                 string anhNguoiVao = this.TTXeTrongBai[maTheXe].anhNguoi;
                 string anhXeVao = this.TTXeTrongBai[maTheXe].anhXe;
                 //Loại bỏ các dữ liệu về xe trong cơ sở dữ liệu
-                xoaThongTinXe(maTheXe, loaiXe);
-                //Tính tiền gửi xe
-                int sotien = tinhTienGuiXe(cachTinhTien, tinhThoiGianGuiXe(xe.ngayGio, thoiGianXacNhan), (Scanner)loaiXe);
+                xoaThongTinXe(maTheXe, (int)loaiXe);
                 //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
                 this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
-                return $"So tien phai tra la: {sotien} \n";
+                //Lấy tiền gửi xe
+                return thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra);
             }
             else
                 return "Canh bao: Anh khong khop";
@@ -244,46 +241,24 @@ namespace DoAnCuoiKi
         }
         public delegate ThanhToan HinhThucThanhToan();
         //Tổng kết số tiền thu được
-        public int themTienKhiThieu(int tienNguoiGuiXe, int tienThem)
-        {
-            return tienNguoiGuiXe + tienThem;
-        }
-        public int tienSauKhiThoiTien(ref int tienNguoiGuiXe, int tienCanTra)
-        {
-            tienNguoiGuiXe -= tienCanTra;
-            return tienCanTra;
-        }
-        public string thanhToan (HinhThucThanhToan hinhThucThanhToan,int tienNguoiGuiXe, tinhTienGXe tinhTien, int sogio, Scanner loaixe)
+        
+        public string thanhToan(HinhThucThanhToan hinhThucThanhToan,int tienNguoiGuiXe, int tongTienCanPhaiTra)
         {
             ThanhToan kq = hinhThucThanhToan();
-            if (kq == ThanhToan.TienMat)
-            {
-                if (tienNguoiGuiXe == tinhTienGuiXe(tinhTien, sogio, loaixe))
-                {
-                    tongTien += tienNguoiGuiXe;
-                }
-                else if (tienNguoiGuiXe < tinhTienGuiXe(tinhTien, sogio, loaixe))
-                {
-                    return "Thanh toan khong du! Vui long them tien";
-                }
-                else
-                {
-                    tongTien += tienSauKhiThoiTien(ref tienNguoiGuiXe, tinhTienGuiXe(tinhTien, sogio, loaixe));
-                    return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
-                }
-            }
-            else
-            {
-                if (tienNguoiGuiXe == tinhTienGuiXe(tinhTien, sogio, loaixe))
-                {
-                    tongTien += tienNguoiGuiXe;
-                }
-                else if (tienNguoiGuiXe < tinhTienGuiXe(tinhTien, sogio, loaixe))
-                {
-                    return "Thanh toan khong du! Vui long them tien";
-                }
-            }
-            return "Thanh toan thanh cong!";
+            if (tienNguoiGuiXe == tongTienCanPhaiTra)
+                tongTien += tienNguoiGuiXe;
+            else 
+                if (tienNguoiGuiXe < tongTienCanPhaiTra)
+                        return "Thanh toan khong du!";
+                else 
+                    if (tienNguoiGuiXe > tongTienCanPhaiTra)
+                        if (kq == ThanhToan.TienMat)
+                        {
+                            tienNguoiGuiXe -= tongTienCanPhaiTra;
+                            tongTien += tongTienCanPhaiTra;
+                            return $"Thanh toan thanh cong! Tien can tra cho quy khach: {tienNguoiGuiXe}";
+                        }
+            return $"Thanh toan {kq} thanh cong!";
         }
         //Status số tiền hiện đang có
 
@@ -294,12 +269,19 @@ namespace DoAnCuoiKi
         {
             return eventSCvaBT?.Invoke(thamso);
         }
-
+        //event update driver
         public delegate object update(params object[] thamso);
         public event update eventUpdateDriver;
         public object thucThiUpdate(params object[] thamso)
         {
             return eventUpdateDriver?.Invoke(thamso);
+        }
+        //event mở rộng bãi giữ xe
+        public delegate object moRong(params object[] thamso);
+        public event moRong eventMoRong;
+        public object thucThiMoRongBaiGiuXe(params object[] thamso)
+        {
+            return eventMoRong?.Invoke(thamso);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace DoAnCuoiKi
 {
     public interface IXeHienDai
     {
-        string BienSoXe { get; set; }
+        string BienSoXe { get; }
 
     }
 }
