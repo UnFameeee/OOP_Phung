@@ -292,10 +292,12 @@ namespace DoAnCuoiKi
             return $"Thanh toan {kq} thanh cong!";
         }
         //Status số tiền hiện đang có
-        public string statusSoTIenHienDangCo()
+        public string statusSoTienHienDangCo()
         {
             return $"Tong so tien hien dang co la: {tongTien}";
         }
+
+
         //event sửa chữa và bảo trì bãi xe
         public delegate object SCvaBT(params object[] thamso);
         public event SCvaBT eventSCvaBT;
