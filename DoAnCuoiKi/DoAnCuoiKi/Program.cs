@@ -26,6 +26,8 @@ namespace DoAnCuoiKi
             /*Tạo đèn tín hiệu*/
             QuanLyBaiGiuXe.DenTinHieu denTinHieuXanh = new QuanLyBaiGiuXe.DenTinHieu(QuanLyBaiGiuXe.denTinHieuXanh);
             QuanLyBaiGiuXe.DenTinHieu denTinHieuDo = new QuanLyBaiGiuXe.DenTinHieu(QuanLyBaiGiuXe.denTinHieuDo);
+            /*In ra tổng tiền hiện đang có*/
+            Console.WriteLine(quanly2.statusSoTienHienDangCo());
             /*Mở thanh chắn*/
             Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuXanh));
             /*Gửi xe vào bãi*/
@@ -52,6 +54,8 @@ namespace DoAnCuoiKi
             Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuXanh));
             /*Đóng thanh chắn*/
             Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuDo));
+            /*In ra tổng tiền hiện đang có sau khi thanh toán*/
+            Console.WriteLine(quanly2.statusSoTienHienDangCo());
             /*In lại thông tin của bãi xe đạp*/
             QuanLyBaiGiuXe.delegateStatusLoaiXe sttxe1 = new QuanLyBaiGiuXe.delegateStatusLoaiXe(quanly2.statusXeDap);
             Console.WriteLine(quanly2.statusLoaiXe(sttxe1));
