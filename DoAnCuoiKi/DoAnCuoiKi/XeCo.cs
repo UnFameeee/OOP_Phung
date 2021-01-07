@@ -8,8 +8,8 @@ namespace DoAnCuoiKi
     {
         //Khai báo thuộc tính
         public string maXe { set; get; }
-        public Scanner loaiXe { set; get; }
-        public string hangXe { set; get; }
+        protected Scanner loaiXe { set; get; }
+        protected string hangXe { set; get; }
         public DateTime ngayGio { set; get; }
 
         //Hàm khởi tạo

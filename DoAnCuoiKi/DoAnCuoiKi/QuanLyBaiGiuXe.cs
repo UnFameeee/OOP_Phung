@@ -80,7 +80,7 @@ namespace DoAnCuoiKi
                     break;
                 }
             }
-            return $"Da them xe {xe.getTypeOfVehicle()}";
+            return $"Da them xe {xe.getTypeOfVehicle()} Ma the xe la: {nguoi.theXe}";
         }
         public int tongSoXe()
         {

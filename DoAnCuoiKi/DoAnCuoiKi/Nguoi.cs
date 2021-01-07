@@ -12,10 +12,10 @@ namespace DoAnCuoiKi
         Nu
     }
     public abstract class Nguoi
-    { 
-        public string khuonMat { set; get; }
+    {
+        protected string khuonMat { set; get; }
+        protected string dangNguoi { set; get; }
         public GioiTinh gioiTinh { set; get; }
-        public string dangNguoi { set; get; }
         public Nguoi()
         {
             this.khuonMat = null;
