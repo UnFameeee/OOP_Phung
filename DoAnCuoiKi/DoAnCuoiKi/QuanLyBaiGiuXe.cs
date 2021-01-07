@@ -142,21 +142,27 @@ namespace DoAnCuoiKi
                 soTienCanPhaiTra += 50000;
                 maTheXe = xuLyTheXe(xe, nguoilayxe);
             }
-            if (thucHienXacNhan(maTheXe, xe, nguoilayxe) == true)
+            if (TTXeTrongBai.ContainsKey(maTheXe) == true)
             {
-                string anhNguoiVao = this.TTXeTrongBai[maTheXe].anhNguoi;
-                string anhXeVao = this.TTXeTrongBai[maTheXe].anhXe;
-                //Loại bỏ các dữ liệu về xe trong cơ sở dữ liệu
-                xoaThongTinXe(maTheXe, (int)loaiXe);
-                //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
-                this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
-                //Lấy tiền gửi xe
-                if (tienNguoiGuiXe < soTienCanPhaiTra)
-                    return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nLay {xe.getTypeOfVehicle()} khong thanh cong\n";
-                return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nDa lay {xe.getTypeOfVehicle()} thanh cong\n";
+                if (thucHienXacNhan(maTheXe, xe, nguoilayxe) == true)
+                {
+                    string anhNguoiVao = this.TTXeTrongBai[maTheXe].anhNguoi;
+                    string anhXeVao = this.TTXeTrongBai[maTheXe].anhXe;
+                    //Loại bỏ các dữ liệu về xe trong cơ sở dữ liệu
+                    xoaThongTinXe(maTheXe, (int)loaiXe);
+                    //Lưu thông tin cơ bản của xe vào Dictionary để xử lý trường hợp mất xe
+                    this.danhSachTTXeDaLay.Add(thongTinXe(maTheXe, xe.ngayGio, thoiGianXacNhan, anhXeVao, anhNguoiVao, xe.anhXe(), nguoilayxe.anhNguoi()));
+                    //Lấy tiền gửi xe
+                    if (tienNguoiGuiXe < soTienCanPhaiTra)
+                        return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nLay {xe.getTypeOfVehicle()} khong thanh cong\n";
+                    return $"{thanhToan(hinhThucThanhToan, tienNguoiGuiXe, soTienCanPhaiTra)}\nDa lay {xe.getTypeOfVehicle()} thanh cong\n";
+                }
+                else
+                    return "Thong bao: Anh khong khop";
             }
             else
-                return "Canh bao: Anh khong khop";
+                return "The xe khong ton tai";
+            
         }
         private bool thucHienXacNhan(int maTheXe, XeCo xe, NguoiGuiXe nguoilayxe)
         {
