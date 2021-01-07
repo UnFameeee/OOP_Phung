@@ -24,20 +24,30 @@ namespace DoAnCuoiKi
         public int tongTien = 500000;
         private int[] slXe = new int[4];
         public int[,] slotXe = new int[4, sucChua]; //khai báo mảng gồm 4 dòng 1000 cột có giá trị = 0
-        public List<string> danhSachTTXeDaLay = new List<string>();
-        public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai = new Dictionary<int, ThongTinXeTrongBai>();
+        public List<string> danhSachTTXeDaLay;
+        public Dictionary<int, ThongTinXeTrongBai> TTXeTrongBai;
         //Hàm khởi tạo
         public QuanLyBaiGiuXe()
         {
             this.tongTien = 500000;
+            danhSachTTXeDaLay = new List<string>();
+            TTXeTrongBai = new Dictionary<int, ThongTinXeTrongBai>();
         }
         public QuanLyBaiGiuXe(QuanLyBaiGiuXe qly)
         {
             this.tongTien = qly.tongTien;
             this.slXe = qly.slXe;
             this.slotXe = qly.slotXe;
-            this.danhSachTTXeDaLay = qly.danhSachTTXeDaLay;
-            this.TTXeTrongBai = qly.TTXeTrongBai;
+            this.danhSachTTXeDaLay = new List<string>();
+            foreach(string gt in qly.danhSachTTXeDaLay)
+            {
+                danhSachTTXeDaLay.Add(gt);
+            }
+            this.TTXeTrongBai = new Dictionary<int, ThongTinXeTrongBai>();
+            foreach(KeyValuePair<int, ThongTinXeTrongBai> item in qly.TTXeTrongBai)
+            {
+                this.TTXeTrongBai.Add(item.Key, item.Value);
+            }
         }
         //Thắng
         List<int> listTheXe = new List<int>(1000000) { 0 };
