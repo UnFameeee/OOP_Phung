@@ -46,9 +46,20 @@ namespace DoAnCuoiKi
             /*Chọn cách thanh toán*/
             QuanLyBaiGiuXe.HinhThucThanhToan hinhThucThanhToan = new QuanLyBaiGiuXe.HinhThucThanhToan(QuanLyBaiGiuXe.tienMat);
             /*Lấy xe ra*/
-            Console.Write($"Nhap so tien can tra: "); int tien1 = int.Parse(Console.ReadLine());
+            /*Nhập thẻ xe*/
+            Console.Write($"Nhap the xe: "); 
+            NguyenVanA.theXe = int.Parse(Console.ReadLine());
+            /*Nhập số tiền cần trả*/
+            Console.Write($"Nhap so tien can tra: ");
+            /*Xử lý lấy xe*/
+            int tien1 = int.Parse(Console.ReadLine());
             Console.WriteLine(quanly2.xuLyLayXe(XeDap_CuaA, NguyenVanA, hinhThucThanhToan, tien1, cachTinhTien));
+            /*Nhập thẻ xe*/
+            Console.Write($"Nhap the xe: "); 
+            NguyenVanB.theXe = int.Parse(Console.ReadLine());
+            /*Nhập số tiền cần trả*/
             Console.Write($"Nhap so tien can tra: "); int tien2 = int.Parse(Console.ReadLine());
+            /*Xử lý lấy xe*/
             Console.WriteLine(quanly2.xuLyLayXe(XeMay_CuaB, NguyenVanB, hinhThucThanhToan, tien2, cachTinhTien));
             /*Mở thanh chắn*/
             Console.WriteLine(quanly2.thanhChanBarrier(denTinHieuXanh));
@@ -59,7 +70,7 @@ namespace DoAnCuoiKi
             /*In lại thông tin của bãi xe đạp*/
             QuanLyBaiGiuXe.delegateStatusLoaiXe sttxe1 = new QuanLyBaiGiuXe.delegateStatusLoaiXe(quanly2.statusXeDap);
             Console.WriteLine(quanly2.statusLoaiXe(sttxe1));
-            /*In lại thông tin của bãi xe đạp*/
+            /*In lại thông tin của bãi xe máy*/
             QuanLyBaiGiuXe.delegateStatusLoaiXe sttxe2 = new QuanLyBaiGiuXe.delegateStatusLoaiXe(quanly2.statusXeMay);
             Console.WriteLine(quanly2.statusLoaiXe(sttxe2));
             /*Nhân viên đóng cửa bãi xe*/
